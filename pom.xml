@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.minecarts</groupId>
+    <artifactId>minecarts-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.12.2-SNAPSHOT</version>
+    <modules>
+        <module>api</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <build.number>unknown</build.number>
+        <minecraft.version>1.12.2</minecraft.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>sponge-repo</id>
+            <url>http://repo.spongepowered.org/maven</url>
+        </repository> <!--Mixins-->
+    </repositories>
+
+</project>
