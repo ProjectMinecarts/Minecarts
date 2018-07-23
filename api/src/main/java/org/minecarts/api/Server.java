@@ -17,4 +17,8 @@ public interface Server {
      */
     public String getMinecartsVersion();
 
+    /**
+     * Enable/disable all plugins
+     */
+    public void setPluginsEnabled(boolean enabled);
 }
