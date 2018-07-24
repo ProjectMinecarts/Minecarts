@@ -5,7 +5,7 @@
     <parent>
         <artifactId>minecarts-parent</artifactId>
         <groupId>org.minecarts</groupId>
-        <version>1.12.2-SNAPSHOT</version>
+        <version>1.13-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -33,7 +33,7 @@
     </dependencies>
 
     <build>
-        <finalName>MiinecartsAPI-${minecraft.version}</finalName>
+        <finalName>MinecartsAPI-${minecraft.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

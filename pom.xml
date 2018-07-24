@@ -7,9 +7,11 @@
     <groupId>org.minecarts</groupId>
     <artifactId>minecarts-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.12.2-SNAPSHOT</version>
+    <version>1.13-SNAPSHOT</version>
     <modules>
         <module>api</module>
+        <module>mcpdepend</module>
+        <module>vanilla_impl</module>
     </modules>
 
     <properties>
@@ -17,7 +19,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <build.number>unknown</build.number>
-        <minecraft.version>1.12.2</minecraft.version>
+        <minecraft.version>1.13</minecraft.version>
     </properties>
 
     <repositories>

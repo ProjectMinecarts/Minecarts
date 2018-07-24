@@ -1,0 +1,10 @@
+{
+  "minVersion": "0.6.9-SNAPSHOT",
+  "required": true,
+  "package": "org.minecarts.vanilla.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mixin.refmap.json",
+  "mixins": [
+    "MixinDedicatedServer",
+  ]
+}

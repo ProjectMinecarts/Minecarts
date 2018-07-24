@@ -14,7 +14,7 @@ public class PluginManager {
         for (File f : plfolder.listFiles()) {
             if (f.getName().endsWith(".jar")) {
                 try (JarFile jar = new JarFile(f)) {
-                    PluginDescription pd = new PluginDescription(jar.getInputStream(jar.getJarEntry("plugin.txt")));
+                    PluginDescription pd = new PluginDescription(jar.getInputStream(jar.getJarEntry("plugin.yml")));
 
                     classLoader = new PluginClassLoader(new PluginLoader(), getClass().getClassLoader(), pd, plfolder,
                             f);

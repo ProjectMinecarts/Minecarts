@@ -1,2 +1,4 @@
 /bin/
 /api/target/
+/mcpdepend/target/
+/vanilla_impl/target/
