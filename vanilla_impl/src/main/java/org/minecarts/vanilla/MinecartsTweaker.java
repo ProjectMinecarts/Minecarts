@@ -30,8 +30,7 @@ public class MinecartsTweaker implements ITweaker {
             if (!serverJar.exists()) {
                 System.out.println("Downloading Minecraft_server.jar Please wait.");
                 try {
-                    URL url = new URL(Main.minecraftJar);
-                    InputStream in = url.openStream();
+                    InputStream in = new URL(Main.minecraftJar).openStream();
                     OutputStream out = new FileOutputStream(serverJar);
                     ByteStreams.copy(in, out);
                     in.close();

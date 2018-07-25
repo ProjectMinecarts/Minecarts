@@ -20,7 +20,7 @@ public class MixinDedicatedServer {
         ServerImpl.instance = s;
         ServerImpl.onStartup();
 
-        System.out.println("  __  __  _                                 _     MC " + Main.minecraftVersion + ", b" + Main.buildNumber);
+        System.out.println("  __  __  _                                 _     MC " + Main.minecraftVersion + ", b" + Main.build);
         System.out.println(" |  \\/  |(_)                               | |                             ");
         System.out.println(" | \\  / | _  _ __    ___   ___  __ _  _ __ | |_  ___     ___   _ __  __ _  ");
         System.out.println(" | |\\/| || || '_ \\  / _ \\ / __|/ _` || '__|| __|/ __|   / _ \\ | '__|/ _` | ");

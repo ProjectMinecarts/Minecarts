@@ -26,6 +26,7 @@ public class ServerImpl implements Server {
         plfolder.mkdirs();
         System.out.println("[Minecarts]: Loading plugins ...");
         pm.start(plfolder);
+        
     }
 
     @Override

@@ -24,7 +24,7 @@ public class Main {
     public static Set<File> tweakers = new HashSet<File>();
 
     public final static String minecraftVersion;
-    public final static String buildNumber;
+    public final static String build;
 
     public static void main(String[] args) {
         Main.args = args;
@@ -59,8 +59,7 @@ public class Main {
 
         List<String> options = new ArrayList<>();
         options.addAll(Arrays.asList("-version", "mnecarts.org",
-                      "-gameDir", ".", 
-                      "-assetsDir", "."));
+                      "-gameDir", ".", "-assetsDir", "."));
         
 
         if (isMinecraftServerIncluded()) { // dev environment
@@ -78,7 +77,7 @@ public class Main {
 
     private static void addURL(URL u) throws IOException {
         URLClassLoader sysloader = (URLClassLoader) Launch.class.getClassLoader();
-        Class sysclass = URLClassLoader.class;
+        Class<?> sysclass = URLClassLoader.class;
 
         try {
             Method method = sysclass.getDeclaredMethod("addURL", URL.class);
@@ -102,7 +101,7 @@ public class Main {
             Properties properties = new Properties();
             properties.load(Main.class.getClassLoader().getResourceAsStream("build.properties"));
             minecraftVersion = properties.getProperty("mcversion", "1.13");
-            buildNumber = properties.getProperty("build", "ERR_NO_BUILD_NUM");
+            build = properties.getProperty("build", "ERR_NO_BUILD_NUM");
         } catch (IOException ex) { throw new RuntimeException(ex); }
     }
 }
