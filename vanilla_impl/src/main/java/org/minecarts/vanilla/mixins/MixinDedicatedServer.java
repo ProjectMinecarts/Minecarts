@@ -3,7 +3,6 @@ package org.minecarts.vanilla.mixins;
 import org.minecarts.vanilla.Main;
 import org.minecarts.vanilla.ServerImpl;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -16,10 +15,12 @@ public class MixinDedicatedServer {
 
     @Inject(method = "d", at = @At("HEAD"), remap = false) // remap false because d is not mapped to init
     void onServerStart(CallbackInfoReturnable<Boolean> callbackInfo) {
+        ServerImpl s = new ServerImpl();
         ServerImpl.server = (MinecraftServer) (Object) this;
+        ServerImpl.instance = s;
         ServerImpl.onStartup();
 
-        System.out.println("  __  __  _                                 _       MC " + Main.minecraftVersion + ", b" + Main.buildNumber);
+        System.out.println("  __  __  _                                 _     MC " + Main.minecraftVersion + ", b" + Main.buildNumber);
         System.out.println(" |  \\/  |(_)                               | |                             ");
         System.out.println(" | \\  / | _  _ __    ___   ___  __ _  _ __ | |_  ___     ___   _ __  __ _  ");
         System.out.println(" | |\\/| || || '_ \\  / _ \\ / __|/ _` || '__|| __|/ __|   / _ \\ | '__|/ _` | ");

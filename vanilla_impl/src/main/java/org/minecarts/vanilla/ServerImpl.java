@@ -3,20 +3,25 @@ package org.minecarts.vanilla;
 import java.io.File;
 import java.util.List;
 
+import org.minecarts.api.Minecarts;
 import org.minecarts.api.Server;
 import org.minecarts.api.World;
 import org.minecarts.api.WorldSettings;
 import org.minecarts.api.plugin.PluginManager;
 
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentString;
 
 public class ServerImpl implements Server {
 
     public static MinecraftServer server;
     public static String build = "1";
     public static PluginManager pm = new PluginManager();
-    
+    public static ServerImpl instance;
+
     public static void onStartup() {
+        Minecarts.setServer(instance);
         File plfolder = new File("plugins");
         plfolder.mkdirs();
         System.out.println("[Minecarts]: Loading plugins ...");
@@ -74,12 +79,16 @@ public class ServerImpl implements Server {
 
     @Override
     public void broadcast(String message) {
-        // TODO Auto-generated method stub
+        for (EntityPlayerMP p : server.ae().v()) 
+            p.a(new TextComponentString(message));
     }
 
     @Override
     public void broadcast(String message, String permission) {
-        // TODO Auto-generated method stub
+        // TODO: Permissons
+        for (EntityPlayerMP p : server.ae().v()) { 
+            p.a(new TextComponentString(message));
+        }
     }
 
 }

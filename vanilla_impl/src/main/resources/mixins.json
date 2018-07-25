@@ -6,5 +6,6 @@
   "refmap": "mixin.refmap.json",
   "mixins": [
     "MixinDedicatedServer",
+    "MixinMinecraftServer"
   ]
 }

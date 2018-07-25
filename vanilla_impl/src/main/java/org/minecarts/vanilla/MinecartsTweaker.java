@@ -22,8 +22,7 @@ public class MinecartsTweaker implements ITweaker {
         Launch.classLoader.addClassLoaderExclusion("org.apache.commons.io");
         Launch.classLoader.addClassLoaderExclusion("org.minecarts.api.");
 
-        if (!Main.isMinecraftServerIncluded()) {
-            // download server jar
+        if (!Main.isMinecraftServerIncluded()) { // download server jar
             File cache = new File("cache");
             cache.mkdir();
 
@@ -39,7 +38,7 @@ public class MinecartsTweaker implements ITweaker {
                     out.close();
                     System.out.println("Downloaded minecraft server");
                 } catch (IOException ex) {
-                    System.err.println("Failed to download <inecraft: " + ex);
+                    System.err.println("Failed to download Minecraft: " + ex);
                     System.exit(-1);
                 }
             }
@@ -48,7 +47,7 @@ public class MinecartsTweaker implements ITweaker {
                 System.out.println("Adding Minecraft server to classpath");
                 Launch.classLoader.addURL(serverJar.toURI().toURL());
             } catch (MalformedURLException ex) {
-                System.err.println("Failed to add minecraft server to classpath. " + ex);
+                System.err.println("Failed to add minecraft server to classpath: " + ex);
                 System.exit(-1);
             }
         }
