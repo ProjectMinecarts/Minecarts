@@ -1,5 +1,9 @@
 package org.minecarts.vanilla.mixins;
 
+import org.minecarts.command.CommandBase;
+import org.minecarts.command.CommandMap;
+import org.minecarts.command.defaults.VersionCommand;
+import org.minecarts.vanilla.CommandManagerImpl;
 import org.minecarts.vanilla.Main;
 import org.minecarts.vanilla.ServerImpl;
 import org.spongepowered.asm.mixin.Mixin;
@@ -33,6 +37,16 @@ public class MixinDedicatedServer {
     @Inject(method = "d", at = @At("RETURN"), remap = false)
     void onServerFullyLoaded(CallbackInfoReturnable<Boolean> callbackInfo) {
         if (callbackInfo.getReturnValue()) {
+            // CommandManager.setCommandManager(new CommandManagerImpl());
+            CommandManagerImpl i = new CommandManagerImpl();
+            for (String s : CommandMap.map.keySet()) {
+                i.register(CommandMap.map.get(s));
+            }
+
+            CommandBase ver = new CommandBase("minecarts", "version");
+            ver.setExecutor(new VersionCommand());
+            i.register(ver);
+
             System.out.println("[Minecarts]: Enabling plugins ...");
             ServerImpl.pm.onEnable();
             System.out.println("[Minecarts]: Server fully loaded.");

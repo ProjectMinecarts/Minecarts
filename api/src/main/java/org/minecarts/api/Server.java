@@ -2,6 +2,8 @@ package org.minecarts.api;
 
 import java.util.List;
 
+import org.minecarts.command.CommandSender;
+
 public interface Server {
 
     /**
@@ -63,4 +65,8 @@ public interface Server {
      */
     public void broadcast(String message, String permission);
 
+    public CommandSender getConsoleCommandSender();
+
+    public Class<?> findClass(String name) throws ClassNotFoundException;
+    
 }

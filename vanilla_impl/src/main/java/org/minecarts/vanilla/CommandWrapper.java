@@ -1,32 +1,71 @@
 package org.minecarts.vanilla;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Predicate;
 
+import org.minecarts.api.Minecarts;
+import org.minecarts.command.CommandSender;
+
+import com.mojang.brigadier.Command;
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
+import com.mojang.brigadier.tree.LiteralCommandNode;
 
 import net.minecraft.command.CommandSource;
 
-public class CommandWrapper implements com.mojang.brigadier.Command<CommandSource>, 
-                                        Predicate<CommandSource>, SuggestionProvider<CommandSource>  {
+public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvider<CommandSource>, Command<CommandSource>  {
+
+    public org.minecarts.command.CommandBase minecarts;
+    
+    public CommandWrapper(org.minecarts.command.CommandBase c) {
+        this.minecarts = c;
+    }
+
+    public LiteralCommandNode<CommandSource> register(String label) {
+        return register(ServerImpl.server.aK().a(), label);
+    }
+
+    public LiteralCommandNode<CommandSource> register(CommandDispatcher<CommandSource> dispatcher, String label) {
+        return dispatcher.register(
+                LiteralArgumentBuilder.<CommandSource>literal(label).requires(this).executes(this)
+                .then(RequiredArgumentBuilder.<CommandSource, String>argument("args", StringArgumentType.greedyString())
+                        .suggests(this).executes(this)));
+    }
 
     @Override
     public CompletableFuture<Suggestions> getSuggestions(CommandContext<CommandSource> arg0, SuggestionsBuilder arg1)
             throws CommandSyntaxException {
-        return null;
+        List<String> results = minecarts.tabComplete();
+
+        for (String s : results) arg1.suggest(s);
+
+        return arg1.buildFuture();
     }
 
     @Override
     public boolean test(CommandSource t) {
-        return true; // Test
+        return true; // TODO
     }
 
     @Override
     public int run(CommandContext<CommandSource> arg0) throws CommandSyntaxException {
+        CommandSource cs = arg0.getSource();
+        CommandSender csm;
+        if (null == cs.f()) {
+            csm = Minecarts.getServer().getConsoleCommandSender();
+        } else {
+            csm = new TempEntityCommandSender(cs.f());
+        }
+        minecarts.getExecutor().onCommand(csm, minecarts, arg0.getInput(), arg0.getInput().split(" "));
+
         return 0;
     }
 

@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="api/src/main/java"/>
 	<classpathentry kind="src" path="vanilla_impl/src/main/java"/>
+    <classpathentry kind="src" path="exampleplugin/src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="F:/mavenrepo/repository/net/minecraft/launchwrapper/1.12/launchwrapper-1.12.jar"/>
 	<classpathentry kind="lib" path="C:/Users/isaia/Downloads/commons-io-2.6.jar"/>

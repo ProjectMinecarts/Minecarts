@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.jar.JarFile;
 
+import org.minecarts.api.Minecarts;
+
 final class PluginClassLoader extends URLClassLoader {
 
     private final PluginLoader loader;
@@ -50,6 +52,10 @@ final class PluginClassLoader extends URLClassLoader {
 
             if (result == null) {
                 result = super.findClass(name);
+                
+                if (result == null) {
+                    result = Minecarts.getServer().findClass(name); // Allow access to the Minecraft server
+                }
 
                 if (result != null) loader.setClass(name, result);
             }

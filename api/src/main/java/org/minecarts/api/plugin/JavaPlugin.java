@@ -2,13 +2,13 @@ package org.minecarts.api.plugin;
 
 import org.minecarts.api.Minecarts;
 import org.minecarts.api.Server;
+import org.minecarts.command.CommandBase;
 
 public class JavaPlugin implements IPlugin {
     private PluginDescription des;
     private boolean enabled;
     
-    public JavaPlugin(PluginDescription des) {
-        init(des);
+    public JavaPlugin() {
     }
 
     public void init(PluginDescription des) {
@@ -57,5 +57,10 @@ public class JavaPlugin implements IPlugin {
             System.out.println((en ? "En" : "Dis") + String.format("abling %s %s ...", des.getName(), des.getVersion()));
             if (this.enabled) onEnable(); else onDisable();
         }
+    }
+
+    @Override
+    public CommandBase getCommand(String name) {
+        return new CommandBase(this, name);
     }
 }
