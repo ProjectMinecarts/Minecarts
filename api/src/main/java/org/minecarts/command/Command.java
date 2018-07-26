@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.minecarts.api.plugin.IPlugin;
 
-public class CommandBase {
+public class Command {
 
     private String name;
     private String description;
@@ -13,22 +13,24 @@ public class CommandBase {
     private List<String> aliases;
     private CommandExecutor ex;
     private IPlugin pl;
+    private String prefix;
 
-    public CommandBase(IPlugin plugin, String name) {
+    public Command(IPlugin plugin, String name) {
         this(plugin.getName(), name);
         this.pl = plugin;
     }
 
-    public CommandBase(String s, String name) {
+    public Command(String s, String name) {
         this(s.toLowerCase(), name, "", "/" + name, new ArrayList<String>());
     }
 
-    public CommandBase(String prefix, String name, String description, String usage, List<String> aliases) {
+    public Command(String prefix, String name, String description, String usage, List<String> aliases) {
         this.name = name;
         this.description = description;
         this.usage = usage;
         this.aliases = aliases;
         this.aliases.add(prefix + ":" + name);
+        this.prefix = prefix;
 
         CommandMap.map.put(name, this);
     }
@@ -55,7 +57,7 @@ public class CommandBase {
      */
     public List<String> addAlias(String alias) {
         aliases.add(alias);
-        aliases.add(pl.getName().toLowerCase() + ":" + alias);
+        aliases.add(prefix + ":" + alias);
         return aliases;
     }
 
@@ -83,4 +85,10 @@ public class CommandBase {
         return pl;
     }
 
+    /**
+     * returns if this Command was registered by a plugin
+     */
+    public boolean isPluginCommand() {
+        return null != pl;
+    }
 }

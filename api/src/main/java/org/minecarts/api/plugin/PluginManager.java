@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.jar.JarFile;
 
 public class PluginManager {
-    public ArrayList<JavaPlugin> plugins = new ArrayList<>();
+    public static ArrayList<JavaPlugin> plugins = new ArrayList<>();
     private PluginClassLoader classLoader;
 
     public void start(File plfolder) {

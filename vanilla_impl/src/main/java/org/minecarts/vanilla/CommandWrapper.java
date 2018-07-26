@@ -23,9 +23,9 @@ import net.minecraft.command.CommandSource;
 
 public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvider<CommandSource>, Command<CommandSource>  {
 
-    public org.minecarts.command.CommandBase minecarts;
+    public org.minecarts.command.Command minecarts;
     
-    public CommandWrapper(org.minecarts.command.CommandBase c) {
+    public CommandWrapper(org.minecarts.command.Command c) {
         this.minecarts = c;
     }
 

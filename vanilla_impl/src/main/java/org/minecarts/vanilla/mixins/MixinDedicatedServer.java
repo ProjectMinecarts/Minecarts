@@ -1,8 +1,9 @@
 package org.minecarts.vanilla.mixins;
 
-import org.minecarts.command.CommandBase;
+import org.minecarts.command.Command;
 import org.minecarts.command.CommandMap;
-import org.minecarts.command.defaults.VersionCommand;
+import org.minecarts.command.defaults.CommandPlugins;
+import org.minecarts.command.defaults.CommandVersion;
 import org.minecarts.vanilla.CommandManagerImpl;
 import org.minecarts.vanilla.Main;
 import org.minecarts.vanilla.ServerImpl;
@@ -37,18 +38,25 @@ public class MixinDedicatedServer {
     @Inject(method = "d", at = @At("RETURN"), remap = false)
     void onServerFullyLoaded(CallbackInfoReturnable<Boolean> callbackInfo) {
         if (callbackInfo.getReturnValue()) {
-            // CommandManager.setCommandManager(new CommandManagerImpl());
-            CommandManagerImpl i = new CommandManagerImpl();
-            for (String s : CommandMap.map.keySet()) {
-                i.register(CommandMap.map.get(s));
-            }
 
-            CommandBase ver = new CommandBase("minecarts", "version");
-            ver.setExecutor(new VersionCommand());
+            CommandManagerImpl i = new CommandManagerImpl();
+
+            Command ver = new Command("minecarts", "version");
+            ver.addAlias("ver");
+            ver.setExecutor(new CommandVersion());
             i.register(ver);
+
+            Command plugins = new Command("minecarts", "plugins");
+            plugins.addAlias("pl");
+            plugins.setExecutor(new CommandPlugins());
+            i.register(plugins);
 
             System.out.println("[Minecarts]: Enabling plugins ...");
             ServerImpl.pm.onEnable();
+
+            for (String s : CommandMap.map.keySet()) {
+                i.register(CommandMap.map.get(s));
+            }
             System.out.println("[Minecarts]: Server fully loaded.");
         }
     }

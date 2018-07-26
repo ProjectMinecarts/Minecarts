@@ -31,7 +31,7 @@ public class Main {
 
         System.out.println("Searching for additional tweakers...");
 
-        List<String> tweakClasses = Arrays.asList("org.minecarts.vanilla.MinecartsTweaker", 
+        List<String> tweakClasses = Arrays.asList("org.minecarts.vanilla.launch.MinecartsTweaker", 
                 "org.spongepowered.asm.launch.MixinTweaker");
 
         File plugins = new File("plugins");

@@ -2,9 +2,11 @@ package org.minecarts.api.plugin;
 
 import org.minecarts.api.Minecarts;
 import org.minecarts.api.Server;
-import org.minecarts.command.CommandBase;
+import org.minecarts.command.Command;
+import org.minecarts.command.CommandExecutor;
+import org.minecarts.command.CommandSender;
 
-public class JavaPlugin implements IPlugin {
+public class JavaPlugin implements IPlugin, CommandExecutor {
     private PluginDescription des;
     private boolean enabled;
     
@@ -60,7 +62,13 @@ public class JavaPlugin implements IPlugin {
     }
 
     @Override
-    public CommandBase getCommand(String name) {
-        return new CommandBase(this, name);
+    public Command getCommand(String name) {
+        return new Command(this, name);
     }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        return false;
+    }
+
 }

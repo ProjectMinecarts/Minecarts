@@ -16,6 +16,10 @@
             <id>mojang</id>
             <url>https://libraries.minecraft.net</url>
         </repository>
+        <repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
     </repositories>
 
     <dependencies>

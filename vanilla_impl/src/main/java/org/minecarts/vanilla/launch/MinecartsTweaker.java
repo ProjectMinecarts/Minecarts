@@ -1,4 +1,4 @@
-package org.minecarts.vanilla;
+package org.minecarts.vanilla.launch;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -8,6 +8,8 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+
+import org.minecarts.vanilla.Main;
 
 import com.google.common.io.ByteStreams;
 

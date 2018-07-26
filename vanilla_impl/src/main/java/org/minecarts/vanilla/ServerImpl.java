@@ -11,8 +11,10 @@ import org.minecarts.command.CommandSender;
 import org.minecarts.command.ConsoleCommandSender;
 import org.minecarts.api.plugin.PluginManager;
 
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentString;
 
 public class ServerImpl implements Server {
 
@@ -80,17 +82,16 @@ public class ServerImpl implements Server {
 
     @Override
     public void broadcast(String message) {
-        // Wait till player api causes execption as is.
-        //for (EntityPlayerMP p : server.ae().v()) 
-        //    p.a(new TextComponentString(message));
+        for (EntityPlayerMP p : server.ae().v()) 
+            p.a(new TextComponentString(message));
     }
 
     @Override
     public void broadcast(String message, String permission) {
         // TODO: Permissons
-        //for (EntityPlayerMP p : server.ae().v()) { 
-        //    p.a(new TextComponentString(message));
-        //}
+        for (EntityPlayerMP p : server.ae().v()) { 
+            p.a(new TextComponentString(message));
+        }
     }
 
     @Override

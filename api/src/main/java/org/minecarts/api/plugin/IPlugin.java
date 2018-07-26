@@ -1,7 +1,7 @@
 package org.minecarts.api.plugin;
 
 import org.minecarts.api.Server;
-import org.minecarts.command.CommandBase;
+import org.minecarts.command.Command;
 
 public interface IPlugin {
     // TODO: configuration files
@@ -39,6 +39,6 @@ public interface IPlugin {
 
     public PluginDescription getDescription();
     
-    public CommandBase getCommand(String name);
+    public Command getCommand(String name);
 
 }
