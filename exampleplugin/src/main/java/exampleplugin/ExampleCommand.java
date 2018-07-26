@@ -1,8 +1,8 @@
 package exampleplugin;
 
-import org.minecarts.command.Command;
-import org.minecarts.command.CommandExecutor;
-import org.minecarts.command.CommandSender;
+import org.minecarts.api.command.Command;
+import org.minecarts.api.command.CommandExecutor;
+import org.minecarts.api.command.CommandSender;
 
 public class ExampleCommand implements CommandExecutor {
 

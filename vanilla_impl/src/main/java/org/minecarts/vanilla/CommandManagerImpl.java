@@ -1,6 +1,6 @@
 package org.minecarts.vanilla;
 
-import org.minecarts.command.Command;
+import org.minecarts.api.command.Command;
 
 public class CommandManagerImpl {
 

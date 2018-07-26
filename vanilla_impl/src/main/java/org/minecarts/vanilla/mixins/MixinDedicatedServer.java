@@ -1,7 +1,7 @@
 package org.minecarts.vanilla.mixins;
 
-import org.minecarts.command.Command;
-import org.minecarts.command.CommandMap;
+import org.minecarts.api.command.Command;
+import org.minecarts.api.command.CommandMap;
 import org.minecarts.command.defaults.CommandPlugins;
 import org.minecarts.command.defaults.CommandVersion;
 import org.minecarts.vanilla.CommandManagerImpl;
@@ -51,6 +51,7 @@ public class MixinDedicatedServer {
             plugins.setExecutor(new CommandPlugins());
             i.register(plugins);
 
+            ServerImpl.pm.onLoad();
             System.out.println("[Minecarts]: Enabling plugins ...");
             ServerImpl.pm.onEnable();
 

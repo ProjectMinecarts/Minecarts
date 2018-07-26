@@ -1,7 +1,7 @@
 package org.minecarts.api.plugin;
 
 import org.minecarts.api.Server;
-import org.minecarts.command.Command;
+import org.minecarts.api.command.Command;
 
 public interface IPlugin {
     // TODO: configuration files
@@ -28,7 +28,7 @@ public interface IPlugin {
     /**
      * Method called on plugin init, during load into ClassLoader
      */
-    public void onLoad();
+    public void onLoad() throws ClassNotFoundException;
 
     /**
      * Main function for plugins to @Override

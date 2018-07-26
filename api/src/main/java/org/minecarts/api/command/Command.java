@@ -1,4 +1,4 @@
-package org.minecarts.command;
+package org.minecarts.api.command;
 
 import java.util.ArrayList;
 import java.util.List;

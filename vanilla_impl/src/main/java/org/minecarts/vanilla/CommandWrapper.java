@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Predicate;
 
 import org.minecarts.api.Minecarts;
-import org.minecarts.command.CommandSender;
+import org.minecarts.api.command.CommandSender;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
@@ -23,9 +23,9 @@ import net.minecraft.command.CommandSource;
 
 public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvider<CommandSource>, Command<CommandSource>  {
 
-    public org.minecarts.command.Command minecarts;
+    public org.minecarts.api.command.Command minecarts;
     
-    public CommandWrapper(org.minecarts.command.Command c) {
+    public CommandWrapper(org.minecarts.api.command.Command c) {
         this.minecarts = c;
     }
 
@@ -64,7 +64,9 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
         } else {
             csm = new TempEntityCommandSender(cs.f());
         }
-        minecarts.getExecutor().onCommand(csm, minecarts, arg0.getInput(), arg0.getInput().split(" "));
+
+        minecarts.getExecutor().onCommand(csm, minecarts, arg0.getInput().split(" ")[0], arg0.getInput().substring(
+                arg0.getInput().indexOf(" ")).trim().split(" "));
 
         return 0;
     }

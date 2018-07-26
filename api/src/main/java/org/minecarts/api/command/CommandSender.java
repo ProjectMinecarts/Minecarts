@@ -1,4 +1,4 @@
-package org.minecarts.command;
+package org.minecarts.api.command;
 
 public interface CommandSender {
 

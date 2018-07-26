@@ -15,7 +15,7 @@ final class PluginClassLoader extends URLClassLoader {
 
     private final PluginLoader loader;
     private final Map<String, Class<?>> classes = new HashMap<String, Class<?>>();
-    private final PluginDescription description;
+    protected final PluginDescription description;
     private final JarFile jar;
     protected final JavaPlugin plugin;
 
@@ -34,7 +34,7 @@ final class PluginClassLoader extends URLClassLoader {
         }
 
         plugin = pluginClass.newInstance();
-        plugin.init(description);
+        // plugin.init(description);
     }
 
     @Override
@@ -52,10 +52,8 @@ final class PluginClassLoader extends URLClassLoader {
 
             if (result == null) {
                 result = super.findClass(name);
-                
-                if (result == null) {
-                    result = Minecarts.getServer().findClass(name); // Allow access to the Minecraft server
-                }
+
+                if (result == null) result = Minecarts.getServer().findClass(name); // Allow access to Launchwrapper
 
                 if (result != null) loader.setClass(name, result);
             }

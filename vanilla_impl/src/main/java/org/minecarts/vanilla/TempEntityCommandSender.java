@@ -1,6 +1,6 @@
 package org.minecarts.vanilla;
 
-import org.minecarts.command.CommandSender;
+import org.minecarts.api.command.CommandSender;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.util.text.TextComponentString;

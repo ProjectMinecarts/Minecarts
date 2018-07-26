@@ -2,7 +2,7 @@ package org.minecarts.api;
 
 import java.util.List;
 
-import org.minecarts.command.CommandSender;
+import org.minecarts.api.command.CommandSender;
 
 public interface Server {
 

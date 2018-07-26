@@ -58,8 +58,7 @@ public class Main {
         }
 
         List<String> options = new ArrayList<>();
-        options.addAll(Arrays.asList("-version", "mnecarts.org",
-                      "-gameDir", ".", "-assetsDir", "."));
+        options.addAll(Arrays.asList("-version", "minecarts.org", "-gameDir", ".", "-assetsDir", "."));
         
 
         if (isMinecraftServerIncluded()) { // dev environment

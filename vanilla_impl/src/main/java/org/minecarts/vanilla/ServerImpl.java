@@ -7,8 +7,8 @@ import org.minecarts.api.Minecarts;
 import org.minecarts.api.Server;
 import org.minecarts.api.World;
 import org.minecarts.api.WorldSettings;
-import org.minecarts.command.CommandSender;
-import org.minecarts.command.ConsoleCommandSender;
+import org.minecarts.api.command.CommandSender;
+import org.minecarts.api.command.ConsoleCommandSender;
 import org.minecarts.api.plugin.PluginManager;
 
 import net.minecraft.entity.player.EntityPlayerMP;
