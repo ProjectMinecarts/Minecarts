@@ -18,6 +18,10 @@ final class PluginClassLoader extends URLClassLoader {
     protected final PluginDescription description;
     private final JarFile jar;
     protected final JavaPlugin plugin;
+    
+    static {
+        ClassLoader.registerAsParallelCapable();
+    }
 
     PluginClassLoader(final PluginLoader loader, final ClassLoader parent, final PluginDescription des, final File dataFolder, final File file) throws IOException,  InstantiationException, IllegalAccessException {
         super(new URL[] {file.toURI().toURL()}, parent);
@@ -34,7 +38,7 @@ final class PluginClassLoader extends URLClassLoader {
         }
 
         plugin = pluginClass.newInstance();
-        // plugin.init(description);
+        plugin.init(description);
     }
 
     @Override

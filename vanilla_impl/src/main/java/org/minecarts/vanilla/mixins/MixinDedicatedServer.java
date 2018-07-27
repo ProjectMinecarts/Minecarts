@@ -44,20 +44,16 @@ public class MixinDedicatedServer {
             Command ver = new Command("minecarts", "version");
             ver.addAlias("ver");
             ver.setExecutor(new CommandVersion());
-            i.register(ver);
 
             Command plugins = new Command("minecarts", "plugins");
             plugins.addAlias("pl");
             plugins.setExecutor(new CommandPlugins());
-            i.register(plugins);
 
-            ServerImpl.pm.onLoad();
             System.out.println("[Minecarts]: Enabling plugins ...");
-            ServerImpl.pm.onEnable();
+            ServerImpl.pm.setAllEnabled(true);
 
-            for (String s : CommandMap.map.keySet()) {
-                i.register(CommandMap.map.get(s));
-            }
+            for (String s : CommandMap.map.keySet()) i.register(CommandMap.map.get(s));
+
             System.out.println("[Minecarts]: Server fully loaded.");
         }
     }

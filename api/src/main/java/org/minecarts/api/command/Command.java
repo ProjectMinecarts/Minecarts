@@ -12,7 +12,7 @@ public class Command {
     private String usage;
     private List<String> aliases;
     private CommandExecutor ex;
-    private IPlugin pl;
+    private IPlugin pl = null;
     private String prefix;
 
     public Command(IPlugin plugin, String name) {
@@ -85,10 +85,4 @@ public class Command {
         return pl;
     }
 
-    /**
-     * returns if this Command was registered by a plugin
-     */
-    public boolean isPluginCommand() {
-        return null != pl;
-    }
 }

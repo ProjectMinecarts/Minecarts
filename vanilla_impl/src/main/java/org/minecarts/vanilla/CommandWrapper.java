@@ -64,8 +64,15 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
         } else {
             csm = new TempEntityCommandSender(cs.f());
         }
+        
+        String[] split = arg0.getInput().split(" ");
 
-        minecarts.getExecutor().onCommand(csm, minecarts, arg0.getInput().split(" ")[0], arg0.getInput().substring(
+        if (split.length <= 1) {
+            minecarts.getExecutor().onCommand(csm, minecarts, split[0], new String[0]);
+            return 0;
+        }
+
+        minecarts.getExecutor().onCommand(csm, minecarts, split[0], arg0.getInput().substring(
                 arg0.getInput().indexOf(" ")).trim().split(" "));
 
         return 0;

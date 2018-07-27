@@ -48,7 +48,7 @@ public class ServerImpl implements Server {
 
     @Override
     public void setPluginsEnabled(boolean enabled) {
-        if (enabled) pm.onEnable(); else pm.onDisable();
+        pm.setAllEnabled(enabled);
     }
 
     @Override
