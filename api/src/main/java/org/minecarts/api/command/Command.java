@@ -73,6 +73,9 @@ public class Command {
         return ex;
     }
 
+    /**
+     * Set the CommandExecutor of this command
+     */
     public void setExecutor(CommandExecutor ex) {
         this.ex = ex;
     }
@@ -83,6 +86,13 @@ public class Command {
      */
     public IPlugin getPlugin() {
         return pl;
+    }
+
+    /**
+     * Get if this command was registered by a plugin
+     */
+    public boolean isPluginCommand() {
+        return null != pl;
     }
 
 }

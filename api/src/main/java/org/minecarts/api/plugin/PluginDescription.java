@@ -16,13 +16,13 @@ public class PluginDescription {
      */
     public PluginDescription(final InputStream in) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
-        String read;
+        String line;
 
         // TODO: Read YAML properly.
-        while ((read=br.readLine()) != null) {
-            if (read.startsWith("main:")) main = read.split(":")[1].trim();
-            if (read.startsWith("name:")) name = read.split(":")[1].trim();
-            if (read.startsWith("version:")) version = read.split(":")[1].trim();
+        while ((line=br.readLine()) != null) {
+            if (line.startsWith("main:")) main = line.split(":")[1].trim();
+            if (line.startsWith("name:")) name = line.split(":")[1].trim();
+            if (line.startsWith("version:")) version = line.split(":")[1].trim();
         }
     }
 

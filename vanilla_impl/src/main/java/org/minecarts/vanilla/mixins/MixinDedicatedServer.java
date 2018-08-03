@@ -65,4 +65,5 @@ public class MixinDedicatedServer {
     public String getServerModName() {
         return "Minecarts";
     }
+
 }

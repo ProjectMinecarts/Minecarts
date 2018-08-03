@@ -81,14 +81,14 @@ public interface Server {
      * Get the player by the player's UUID
      */
     public Player getPlayer(UUID uuid);
-    
+
     /**
      * Gets all players that have a simlar name to the string
      */
     public List<Player> getPlayersMatchng(String name);
 
     /**
-     * Internal method used in PluginClassLoader
+     * Get obfucated nms class
      */
     public Class<?> findClass(String name) throws ClassNotFoundException;
     

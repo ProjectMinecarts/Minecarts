@@ -27,7 +27,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvider<CommandSource>, Command<CommandSource>  {
 
     public org.minecarts.api.command.Command minecarts;
-    
+
     public CommandWrapper(org.minecarts.api.command.Command c) {
         this.minecarts = c;
     }
@@ -66,11 +66,11 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
             csm = Minecarts.getServer().getConsoleCommandSender();
         } else {
             Entity e = cs.f();
-            if (e instanceof EntityPlayerMP) {
+            if (e instanceof EntityPlayerMP) 
                 csm = (Player) e;
-            } else csm = (org.minecarts.api.entity.Entity) e;
+            else csm = (org.minecarts.api.entity.Entity) e;
         }
-        
+
         String[] split = arg0.getInput().split(" ");
 
         if (split.length <= 1) {

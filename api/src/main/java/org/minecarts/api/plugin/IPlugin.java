@@ -35,10 +35,19 @@ public interface IPlugin {
      */
     public void onEnable();
 
+    /**
+     * Method called when the plugin is disabled (ex. Server shutdown)
+     */
     public void onDisable();
 
+    /**
+     * Get the discription file of this plugin
+     */
     public PluginDescription getDescription();
-    
+
+    /**
+     * Get the command by the name.
+     */
     public Command getCommand(String name);
 
 }

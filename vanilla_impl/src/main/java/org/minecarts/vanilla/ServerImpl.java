@@ -1,6 +1,7 @@
 package org.minecarts.vanilla;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -109,8 +110,7 @@ public class ServerImpl implements Server {
 
     @Override
     public Player getPlayer(String name) {
-        // TODO Auto-generated method stub
-        return null;
+        return (Player) server.ae().a(name);
     }
 
     @Override
@@ -120,8 +120,11 @@ public class ServerImpl implements Server {
 
     @Override
     public List<Player> getPlayersMatchng(String name) {
-        // TODO Auto-generated method stub
-        return null;
+        List<Player> l = new ArrayList<>();
+        for (EntityPlayerMP e : server.ae().b(name)) {
+            l.add((Player) e);
+        }
+        return l;
     }
 
 }

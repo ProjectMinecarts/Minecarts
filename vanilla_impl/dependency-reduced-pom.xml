@@ -107,6 +107,10 @@
   </build>
   <repositories>
     <repository>
+      <id>mikroskeem-repo</id>
+      <url>https://repo.wut.ee/repository/mikroskeem-repo</url>
+    </repository>
+    <repository>
       <id>mojang</id>
       <url>https://libraries.minecraft.net</url>
     </repository>

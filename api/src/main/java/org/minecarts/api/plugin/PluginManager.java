@@ -18,7 +18,7 @@ public class PluginManager {
 
                     classLoader = new PluginClassLoader(new PluginLoader(), getClass().getClassLoader(), pd, folder, f);
                     plugins.add(classLoader.plugin);
-                } catch (Exception e) { System.err.println(f.getName() + " is not a JavaPlugin. " + e.getMessage()); }
+                } catch (Exception e) { System.err.println(f.getName() + " is not a valid plugin: " + e.getMessage()); }
             }
         }
     }

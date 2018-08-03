@@ -6,5 +6,4 @@ import net.minecraft.entity.player.EntityPlayer;
 
 @Mixin(EntityPlayer.class)
 public abstract class MixinEntityPlayer extends MixinEntity {
-
 }

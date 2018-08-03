@@ -22,9 +22,6 @@ public class MinecartsTweaker implements ITweaker {
     static {
         Launch.classLoader.addClassLoaderExclusion("com.google.gson.");
         Launch.classLoader.addClassLoaderExclusion("org.apache.commons.io");
-        // Launch.classLoader.addClassLoaderExclusion("org.minecarts.api.");
-        //Launch.classLoader.addClassLoaderExclusion("com.mojang.brigadier.Command");
-        //Launch.classLoader.addClassLoaderExclusion("com.mojang.");
 
         if (!Main.isMinecraftServerIncluded()) { // download server jar
             File cache = new File("cache");
