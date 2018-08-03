@@ -16,6 +16,7 @@ public class ExamplePlugin extends JavaPlugin {
 
         System.out.println("Registering /examplecommand :");
         getCommand("examplecommand").setExecutor(new ExampleCommand());
+        getCommand("wild").setExecutor(new CommandWild());
     }
     
 }

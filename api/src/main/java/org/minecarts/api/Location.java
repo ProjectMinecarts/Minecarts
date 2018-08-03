@@ -2,8 +2,9 @@ package org.minecarts.api;
 
 public class Location {
 
-    private World world;
-    private int x, y, z;
-    
+    public World world;
+    public double x, y, z;
+
     private float pitch, yaw;
+
 }

@@ -1,2 +1,3 @@
-exampleplugin\ExamplePlugin.class
 exampleplugin\ExampleCommand.class
+exampleplugin\CommandWild.class
+exampleplugin\ExamplePlugin.class

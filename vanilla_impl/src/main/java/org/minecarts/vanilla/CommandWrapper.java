@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 
 import org.minecarts.api.Minecarts;
 import org.minecarts.api.command.CommandSender;
+import org.minecarts.api.entity.Player;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
@@ -20,6 +21,8 @@ import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 
 import net.minecraft.command.CommandSource;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayerMP;
 
 public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvider<CommandSource>, Command<CommandSource>  {
 
@@ -62,7 +65,10 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
         if (null == cs.f()) {
             csm = Minecarts.getServer().getConsoleCommandSender();
         } else {
-            csm = new TempEntityCommandSender(cs.f());
+            Entity e = cs.f();
+            if (e instanceof EntityPlayerMP) {
+                csm = (Player) e;
+            } else csm = (org.minecarts.api.entity.Entity) e;
         }
         
         String[] split = arg0.getInput().split(" ");

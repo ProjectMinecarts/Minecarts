@@ -2,6 +2,7 @@ package org.minecarts.vanilla;
 
 import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import org.minecarts.api.Minecarts;
 import org.minecarts.api.Server;
@@ -9,7 +10,9 @@ import org.minecarts.api.World;
 import org.minecarts.api.WorldSettings;
 import org.minecarts.api.command.CommandSender;
 import org.minecarts.api.command.ConsoleCommandSender;
+import org.minecarts.api.entity.Player;
 import org.minecarts.api.plugin.PluginManager;
+import org.minecarts.vanilla.mixins.MixinEntityPlayerMP;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.launchwrapper.Launch;
@@ -102,6 +105,23 @@ public class ServerImpl implements Server {
     @Override
     public Class<?> findClass(String name) throws ClassNotFoundException {
         return Launch.classLoader.findClass(name);
+    }
+
+    @Override
+    public Player getPlayer(String name) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Player getPlayer(UUID uuid) {
+        return (Player) server.ae().a(uuid);
+    }
+
+    @Override
+    public List<Player> getPlayersMatchng(String name) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

@@ -1,8 +1,10 @@
 package org.minecarts.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.minecarts.api.command.CommandSender;
+import org.minecarts.api.entity.Player;
 
 public interface Server {
 
@@ -65,8 +67,29 @@ public interface Server {
      */
     public void broadcast(String message, String permission);
 
+    /**
+     * Get the {@link org.minecarts.api.command.CommandSender} for the console
+     */
     public CommandSender getConsoleCommandSender();
 
+    /**
+     * Get the player based on the player's name
+     */
+    public Player getPlayer(String name);
+
+    /**
+     * Get the player by the player's UUID
+     */
+    public Player getPlayer(UUID uuid);
+    
+    /**
+     * Gets all players that have a simlar name to the string
+     */
+    public List<Player> getPlayersMatchng(String name);
+
+    /**
+     * Internal method used in PluginClassLoader
+     */
     public Class<?> findClass(String name) throws ClassNotFoundException;
     
 }

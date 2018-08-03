@@ -18,7 +18,7 @@ final class PluginClassLoader extends URLClassLoader {
     protected final PluginDescription description;
     private final JarFile jar;
     protected final JavaPlugin plugin;
-    
+
     static {
         ClassLoader.registerAsParallelCapable();
     }
@@ -32,13 +32,13 @@ final class PluginClassLoader extends URLClassLoader {
 
         Class<? extends JavaPlugin> pluginClass;
         try {
-            pluginClass = Class.forName(description.getMain(), true, this).asSubclass(JavaPlugin.class);
+            pluginClass = Class.forName(des.getMain(), true, this).asSubclass(JavaPlugin.class);
         } catch (ClassCastException | ClassNotFoundException e) {
-            throw new IOException("Unable to get class `" + description.getMain() + "' " + e.getMessage());
+            throw new IOException("Unable to get class `" + des.getMain() + "' " + e.getMessage());
         }
 
         plugin = pluginClass.newInstance();
-        plugin.init(description);
+        plugin.init(des);
     }
 
     @Override
