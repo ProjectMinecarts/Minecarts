@@ -7,6 +7,8 @@ import java.util.function.Predicate;
 import org.minecarts.api.Minecarts;
 import org.minecarts.api.command.CommandSender;
 import org.minecarts.api.entity.Player;
+import org.minecarts.api.event.EventRegistery;
+import org.minecarts.api.event.player.PlayerCommandPreprocessEvent;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
@@ -62,16 +64,23 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
     public int run(CommandContext<CommandSource> arg0) throws CommandSyntaxException {
         CommandSource cs = arg0.getSource();
         CommandSender csm;
+        boolean player = false;
+
         if (null == cs.f()) {
             csm = Minecarts.getServer().getConsoleCommandSender();
         } else {
             Entity e = cs.f();
-            if (e instanceof EntityPlayerMP) 
+            if (e instanceof EntityPlayerMP) {
                 csm = (Player) e;
-            else csm = (org.minecarts.api.entity.Entity) e;
+                player = true;
+            } else csm = (org.minecarts.api.entity.Entity) e;
         }
 
         String[] split = arg0.getInput().split(" ");
+
+        if (player)
+            EventRegistery.get().invoke(PlayerCommandPreprocessEvent.class, 
+                    new PlayerCommandPreprocessEvent((Player)csm, minecarts, arg0.getInput()));
 
         if (split.length <= 1) {
             minecarts.getExecutor().onCommand(csm, minecarts, split[0], new String[0]);

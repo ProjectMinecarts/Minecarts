@@ -6,7 +6,7 @@ import org.minecarts.api.command.Command;
 import org.minecarts.api.command.CommandExecutor;
 import org.minecarts.api.command.CommandSender;
 
-public class JavaPlugin implements IPlugin, CommandExecutor {
+public class JavaPlugin implements IPlugin, CommandExecutor, Listener {
     private PluginDescription des;
     private boolean enabled = false;
 

@@ -4,9 +4,9 @@
 	<classpathentry kind="src" path="vanilla_impl/src/main/java"/>
 	<classpathentry kind="src" path="exampleplugin/src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="F:/mavenrepo/repository/net/minecraft/launchwrapper/1.12/launchwrapper-1.12.jar"/>
 	<classpathentry kind="lib" path="F:/mavenrepo/repository/com/google/guava/guava/21.0/guava-21.0.jar"/>
 	<classpathentry kind="lib" path="F:/mavenrepo/repository/org/minecarts/minecraft-server/1.13/minecraft-server-1.13.jar"/>
 	<classpathentry kind="lib" path="F:/mavenrepo/repository/org/spongepowered/mixin/0.7.10-SNAPSHOT/mixin-0.7.10-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="F:/mavenrepo/repository/net/minecraft/launchwrapper/1.12/launchwrapper-1.12.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

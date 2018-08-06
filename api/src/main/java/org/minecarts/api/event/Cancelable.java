@@ -10,6 +10,6 @@ public interface Cancelable {
   /**
    * Sets whether the event will occur or not
    */
-  public void setCancelable(boolean cancel);
+  public void setCanceled(boolean cancel);
   
 }
