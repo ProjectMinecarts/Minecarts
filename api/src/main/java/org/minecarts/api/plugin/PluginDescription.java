@@ -37,4 +37,5 @@ public class PluginDescription {
     public String getVersion() {
         return version;
     }
+
 }

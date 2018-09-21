@@ -16,7 +16,7 @@ public class CommandWild implements CommandExecutor {
 
         Player p = (Player) sender;
 
-        p.teleport(r.nextInt(10000), r.nextInt(10) + 100, r.nextInt(10000));
+        p.teleport(r.nextInt(5000), r.nextInt(10) + 100, r.nextInt(5000));
         p.sendMessage("test of Minecarts Player & Entity api.");
 
         return true;

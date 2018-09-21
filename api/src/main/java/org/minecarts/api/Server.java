@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.minecarts.api.command.CommandSender;
 import org.minecarts.api.entity.Player;
+import org.minecarts.api.plugin.PluginManager;
 
 public interface Server {
 
@@ -91,5 +92,16 @@ public interface Server {
      * Get obfucated nms class
      */
     public Class<?> findClass(String name) throws ClassNotFoundException;
-    
+
+    /**
+     * Returns the obfucated nms class by the non-obfucated name.
+     * ex. findClassByMap("EnumChatFormat") -> a.class
+     */
+    public Class<?> findClassByMap(String name) throws ClassNotFoundException;
+
+    /**
+     * Returns the server's plugin manager.
+     */
+    public PluginManager getPluginManager();
+
 }

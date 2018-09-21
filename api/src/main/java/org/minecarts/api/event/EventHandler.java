@@ -7,14 +7,10 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-
-/**
- * adding this to events have no effect atm.
- */
 public @interface EventHandler {
 
-    EventPriority priority() default EventPriority.NORMAL;
+    public EventPriority priority() default EventPriority.NORMAL;
 
-    boolean ignoreCancelled() default false;
+    public boolean ignoreCancelled() default false;
 
 }

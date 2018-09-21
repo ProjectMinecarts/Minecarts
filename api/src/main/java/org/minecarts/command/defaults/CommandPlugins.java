@@ -12,9 +12,8 @@ public class CommandPlugins implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         String strs = String.format("Plugins (%s): ", PluginManager.plugins.size());
-        for (JavaPlugin s : PluginManager.plugins) {
+        for (JavaPlugin s : PluginManager.plugins)
             strs += (s.isEnabled() ? ChatColor.GREEN : ChatColor.RED) + s.getName() + ChatColor.RESET + ", ";
-        }
 
         sender.sendMessage(strs);
         return true;

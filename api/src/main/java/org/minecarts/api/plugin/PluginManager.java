@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.jar.JarFile;
 
+import org.minecarts.api.event.EventRegistery;
+
 public class PluginManager {
     public static ArrayList<JavaPlugin> plugins = new ArrayList<>();
     private PluginClassLoader classLoader;
@@ -25,6 +27,10 @@ public class PluginManager {
 
     public void setAllEnabled(boolean enable) {
         for (JavaPlugin p : plugins) p.setEnabled(enable);
+    }
+
+    public void registerEvents(Listener listener, IPlugin plugin) {
+        EventRegistery.registerAll(listener);
     }
 
 }

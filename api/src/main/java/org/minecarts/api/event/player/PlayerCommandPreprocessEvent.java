@@ -14,6 +14,7 @@ public class PlayerCommandPreprocessEvent extends PlayerEvent implements Cancela
         super(csm);
         this.cmd = cmd;
         this.msg = msg;
+        this.cancel = false;
     }
 
     public Command getCommand() {
@@ -31,7 +32,7 @@ public class PlayerCommandPreprocessEvent extends PlayerEvent implements Cancela
 
     @Override
     public void setCanceled(boolean cancel) {
-        this.cancel = true;
+        this.cancel = cancel;
     }
 
 }

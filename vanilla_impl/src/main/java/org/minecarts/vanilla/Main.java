@@ -59,7 +59,6 @@ public class Main {
 
         List<String> options = new ArrayList<>();
         options.addAll(Arrays.asList("-version", "minecarts.org", "-gameDir", ".", "-assetsDir", "."));
-        
 
         if (isMinecraftServerIncluded()) { // dev environment
             options.add("--mixin");

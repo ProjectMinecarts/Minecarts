@@ -1,8 +1,8 @@
 package exampleplugin;
 
-import org.minecarts.api.event.Event;
+import org.minecarts.api.Minecarts;
 import org.minecarts.api.event.EventHandler;
-import org.minecarts.api.event.EventRegistery;
+import org.minecarts.api.event.EventPriority;
 import org.minecarts.api.event.player.PlayerCommandPreprocessEvent;
 import org.minecarts.api.plugin.JavaPlugin;
 
@@ -22,17 +22,26 @@ public class ExamplePlugin extends JavaPlugin {
         getCommand("examplecommand").setExecutor(new ExampleCommand());
         getCommand("wild").setExecutor(new CommandWild());
 
-        EventRegistery.get().registerAll(this);
+        Minecarts.getServer().getPluginManager().registerEvents(this, this);
     }
 
     @EventHandler
     public void anEventMethodThingy(PlayerCommandPreprocessEvent e) {
-        e.getPlayer().sendMessage("player has run command!");
+        e.getPlayer().sendMessage("player has run command! 1");
+        e.setCanceled(true);
+        System.out.println("sent message 1");
     }
 
-    @EventHandler
-    public void anEventMethodThingy(Event e) {
-        // Hello
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void anEventMethodThingy2(PlayerCommandPreprocessEvent e) {
+        e.getPlayer().sendMessage("player has run command! 2");
+        System.out.println("sent message 2");
+    }
+
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void anEventMethodThingy3(PlayerCommandPreprocessEvent e) {
+        e.getPlayer().sendMessage("player has run command! 3");
+        System.out.println("sent message 3");
     }
 
 }

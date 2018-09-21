@@ -46,13 +46,13 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
     }
 
     @Override
-    public CompletableFuture<Suggestions> getSuggestions(CommandContext<CommandSource> arg0, SuggestionsBuilder arg1)
+    public CompletableFuture<Suggestions> getSuggestions(CommandContext<CommandSource> con, SuggestionsBuilder sug)
             throws CommandSyntaxException {
         List<String> results = minecarts.tabComplete();
 
-        for (String s : results) arg1.suggest(s);
+        for (String s : results) sug.suggest(s);
 
-        return arg1.buildFuture();
+        return sug.buildFuture();
     }
 
     @Override
@@ -65,6 +65,7 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
         CommandSource cs = arg0.getSource();
         CommandSender csm;
         boolean player = false;
+        boolean run = true;
 
         if (null == cs.f()) {
             csm = Minecarts.getServer().getConsoleCommandSender();
@@ -78,9 +79,13 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
 
         String[] split = arg0.getInput().split(" ");
 
-        if (player)
-            EventRegistery.get().invoke(PlayerCommandPreprocessEvent.class, 
-                    new PlayerCommandPreprocessEvent((Player)csm, minecarts, arg0.getInput()));
+        if (player) {
+            PlayerCommandPreprocessEvent e = (PlayerCommandPreprocessEvent) 
+                    EventRegistery.invoke(PlayerCommandPreprocessEvent.class, new PlayerCommandPreprocessEvent((Player)csm, minecarts, arg0.getInput()));
+            run = !e.isCanceled();
+        }
+
+        if (!run) return 0;
 
         if (split.length <= 1) {
             minecarts.getExecutor().onCommand(csm, minecarts, split[0], new String[0]);

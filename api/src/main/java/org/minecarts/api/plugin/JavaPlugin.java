@@ -1,5 +1,7 @@
 package org.minecarts.api.plugin;
 
+import java.util.HashMap;
+
 import org.minecarts.api.Minecarts;
 import org.minecarts.api.Server;
 import org.minecarts.api.command.Command;
@@ -9,6 +11,7 @@ import org.minecarts.api.command.CommandSender;
 public class JavaPlugin implements IPlugin, CommandExecutor, Listener {
     private PluginDescription des;
     private boolean enabled = false;
+    private HashMap<String, Command> cmdmap;
 
     public JavaPlugin() {
     }
@@ -17,6 +20,7 @@ public class JavaPlugin implements IPlugin, CommandExecutor, Listener {
         this.des = des;
         this.enabled = false;
         System.out.println(String.format("Loading %s %s ...", des.getName(), des.getVersion()));
+        this.cmdmap = new HashMap<>();
         this.onLoad();
     }
 
@@ -63,7 +67,12 @@ public class JavaPlugin implements IPlugin, CommandExecutor, Listener {
 
     @Override
     public Command getCommand(String name) {
-        return new Command(this, name);
+        if (cmdmap.containsKey(name))
+            return cmdmap.get(name);
+
+        Command c = new Command(this, name);
+        cmdmap.put(name, c);
+        return c;
     }
 
     @Override

@@ -13,7 +13,6 @@ import org.minecarts.api.command.CommandSender;
 import org.minecarts.api.command.ConsoleCommandSender;
 import org.minecarts.api.entity.Player;
 import org.minecarts.api.plugin.PluginManager;
-import org.minecarts.vanilla.mixins.MixinEntityPlayerMP;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.launchwrapper.Launch;
@@ -23,7 +22,7 @@ import net.minecraft.util.text.TextComponentString;
 public class ServerImpl implements Server {
 
     public static MinecraftServer server;
-    public static String build = "1";
+    public static String build = "1.0-SNAPSHOT";
     public static PluginManager pm = new PluginManager();
     public static ServerImpl instance;
 
@@ -121,10 +120,21 @@ public class ServerImpl implements Server {
     @Override
     public List<Player> getPlayersMatchng(String name) {
         List<Player> l = new ArrayList<>();
-        for (EntityPlayerMP e : server.ae().b(name)) {
+        for (EntityPlayerMP e : server.ae().b(name))
             l.add((Player) e);
-        }
+
         return l;
+    }
+
+    @Override
+    public PluginManager getPluginManager() {
+        return pm;
+    }
+
+    @Override
+    public Class<?> findClassByMap(String name) throws ClassNotFoundException {
+        System.err.println("UNIMPLMENTED METHOD");
+        return findClass(name);
     }
 
 }

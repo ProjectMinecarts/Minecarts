@@ -12,4 +12,8 @@ public abstract class Event {
         this.async = async;
     }
 
+    public boolean isAsync() {
+        return async;
+    }
+
 }
