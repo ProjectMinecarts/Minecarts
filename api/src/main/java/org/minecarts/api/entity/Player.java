@@ -1,6 +1,6 @@
 package org.minecarts.api.entity;
 
-public interface Player extends Entity {
+public interface Player extends LivingEntity {
 
     @Override
     public default EntityType getType() {
@@ -8,9 +8,11 @@ public interface Player extends Entity {
     }
 
     /**
-     * Get the Economy balance 
-     * provided by an Economy plugin 
+     * Get the Player's API configuration file.
+     * Useful for storing econ balances & 
+     * other usefull infomation
      */
-    public double getBalance();
+    // TODO: Change return file once implmented.
+    public Object getConfiguration();
 
 }
