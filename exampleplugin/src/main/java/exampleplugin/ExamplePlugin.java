@@ -28,7 +28,6 @@ public class ExamplePlugin extends JavaPlugin {
     @EventHandler
     public void anEventMethodThingy(PlayerCommandPreprocessEvent e) {
         e.getPlayer().sendMessage("player has run command! 1");
-        e.setCanceled(true);
         System.out.println("sent message 1");
     }
 

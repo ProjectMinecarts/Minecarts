@@ -14,11 +14,8 @@ public abstract class MixinEntityPlayerMP extends MixinEntityPlayer implements P
         return EntityType.PLAYER;
     }
 
-    /**
-     * Get the Economy balance provided by an Economy plugin 
-     */
-    public double getBalance() {
-        return 0; // TODO
+    public Object getConfiguration() {
+        return null; // TODO: Configuration files
     }
 
 }
