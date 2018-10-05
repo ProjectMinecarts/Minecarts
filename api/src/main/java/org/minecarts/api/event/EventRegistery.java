@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.minecarts.api.plugin.Listener;
+import org.minecarts.api.util.Multithreading;
 
 public class EventRegistery {
 
@@ -52,20 +53,22 @@ public class EventRegistery {
         return ev;
     }
 
-    public static boolean invoke(List<RegisteredListener> ls, Event ev) {
-        System.out.println("invoking: " + ls.size());
+    public static void invoke(List<RegisteredListener> ls, Event ev) {
+        if (ev.isAsync()) Multithreading.runAsync(() -> invoke0(ls,ev)); else invoke0(ls,ev);
+    }
+
+    public static void invoke0(List<RegisteredListener> ls, Event ev) {
         for (RegisteredListener l : ls) {
             Method m = l.method;
             try {
 
                 if (ev instanceof Cancelable)
-                    if ( ((Cancelable)ev).isCanceled() && !l.ignoreCancelled ) return true;
+                    if ( ((Cancelable)ev).isCanceled() && !l.ignoreCancelled ) return;
 
                 m.invoke(l.l, ev);
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
                 e.printStackTrace();
             }
         }
-        return false;
     }
 }

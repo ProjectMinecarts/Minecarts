@@ -133,8 +133,8 @@ public class ServerImpl implements Server {
 
     @Override
     public Class<?> findClassByMap(String name) throws ClassNotFoundException {
-        System.err.println("UNIMPLMENTED METHOD");
-        return findClass(name);
+        // TODO: read mappings and return obfucated file name
+        throw new ClassNotFoundException("Unimplmented Method!");
     }
 
 }

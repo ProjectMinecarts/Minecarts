@@ -16,4 +16,12 @@ public abstract class Event {
         return async;
     }
 
+    /**
+     * Method has no effect on existing listener calls.
+     * @return The new updated value of async
+     */
+    public boolean setAsync(boolean val) {
+        return (async = val);
+    }
+
 }

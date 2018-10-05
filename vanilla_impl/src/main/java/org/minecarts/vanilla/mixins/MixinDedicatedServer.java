@@ -2,6 +2,8 @@ package org.minecarts.vanilla.mixins;
 
 import org.minecarts.api.command.Command;
 import org.minecarts.api.command.CommandMap;
+import org.minecarts.api.event.EventRegistery;
+import org.minecarts.api.event.server.ServerFullyLoadedEvent;
 import org.minecarts.command.defaults.CommandPlugins;
 import org.minecarts.command.defaults.CommandVersion;
 import org.minecarts.vanilla.CommandManagerImpl;
@@ -55,6 +57,7 @@ public class MixinDedicatedServer {
             for (String s : CommandMap.map.keySet()) i.register(CommandMap.map.get(s));
 
             System.out.println("[Minecarts]: Server fully loaded.");
+            EventRegistery.invoke(ServerFullyLoadedEvent.class, new ServerFullyLoadedEvent());
         }
     }
 
