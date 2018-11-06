@@ -2,6 +2,7 @@ package org.minecarts.api.plugin;
 
 import org.minecarts.api.Server;
 import org.minecarts.api.command.Command;
+import org.minecarts.api.logging.Logger;
 
 public interface IPlugin {
     // TODO: configuration files
@@ -49,5 +50,10 @@ public interface IPlugin {
      * Get the command by the name.
      */
     public Command getCommand(String name);
+
+    /**
+     * Returns the Logger used by this plugin
+     */
+    public Logger getLogger();
 
 }

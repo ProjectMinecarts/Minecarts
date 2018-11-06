@@ -2,16 +2,21 @@ package org.minecarts.api.plugin;
 
 import java.util.HashMap;
 
+import org.minecarts.api.ChatColor;
 import org.minecarts.api.Minecarts;
 import org.minecarts.api.Server;
 import org.minecarts.api.command.Command;
 import org.minecarts.api.command.CommandExecutor;
 import org.minecarts.api.command.CommandSender;
+import org.minecarts.api.logging.Logger;
+import org.minecarts.api.logging.PluginLogger;
 
 public class JavaPlugin implements IPlugin, CommandExecutor, Listener {
+
     private PluginDescription des;
     private boolean enabled = false;
     private HashMap<String, Command> cmdmap;
+    private Logger logger;
 
     public JavaPlugin() {
     }
@@ -19,7 +24,8 @@ public class JavaPlugin implements IPlugin, CommandExecutor, Listener {
     public void init(PluginDescription des) {
         this.des = des;
         this.enabled = false;
-        System.out.println(String.format("Loading %s %s ...", des.getName(), des.getVersion()));
+        this.logger = new PluginLogger(this);
+        logger.info(String.format("Loading %s %s ...", des.getName(), des.getVersion()));
         this.cmdmap = new HashMap<>();
         this.onLoad();
     }
@@ -60,7 +66,8 @@ public class JavaPlugin implements IPlugin, CommandExecutor, Listener {
         if (this.enabled != en) {
             this.enabled = en;
 
-            System.out.println((en ? "En" : "Dis") + String.format("abling %s %s ...", des.getName(), des.getVersion()));
+            logger.info((en ? ChatColor.GREEN + "En" : ChatColor.RED + "Dis") + 
+                    String.format("abling" + ChatColor.RESET + " %s %s ...", des.getName(), des.getVersion()));
             if (this.enabled) onEnable(); else onDisable();
         }
     }
@@ -77,7 +84,12 @@ public class JavaPlugin implements IPlugin, CommandExecutor, Listener {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        return false;
+        return false; // To be overriden by plugins
+    }
+
+    @Override
+    public Logger getLogger() {
+        return logger;
     }
 
 }

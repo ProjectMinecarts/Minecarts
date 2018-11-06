@@ -1,9 +1,11 @@
 package org.minecarts.vanilla.mixins;
 
+import org.minecarts.api.ChatColor;
 import org.minecarts.api.command.Command;
 import org.minecarts.api.command.CommandMap;
 import org.minecarts.api.event.EventRegistery;
 import org.minecarts.api.event.server.ServerFullyLoadedEvent;
+import org.minecarts.api.logging.Logger;
 import org.minecarts.command.defaults.CommandPlugins;
 import org.minecarts.command.defaults.CommandVersion;
 import org.minecarts.vanilla.CommandManagerImpl;
@@ -20,6 +22,8 @@ import net.minecraft.server.dedicated.DedicatedServer;
 @Mixin(DedicatedServer.class)
 public class MixinDedicatedServer {
 
+    private Logger logger = new Logger("[" + ChatColor.WHITE + "Minecarts" + ChatColor.RESET + "]: " + ChatColor.RESET);
+
     @Inject(method = "d", at = @At("HEAD"), remap = false) // remap false because d is not mapped to init
     void onServerStart(CallbackInfoReturnable<Boolean> callbackInfo) {
         ServerImpl s = new ServerImpl();
@@ -35,6 +39,7 @@ public class MixinDedicatedServer {
         System.out.println(" |_|  |_||_||_| |_| \\___| \\___|\\__,_||_|    \\__||___/(_)\\___/ |_|   \\__, | ");
         System.out.println("                                                                     __/ | ");
         System.out.println("Minecarts.org Server Mod                                            |___/  ");
+        logger.info(ChatColor.BLUE + "Minecarts Test");
     }
 
     @Inject(method = "d", at = @At("RETURN"), remap = false)
@@ -51,12 +56,13 @@ public class MixinDedicatedServer {
             plugins.addAlias("pl");
             plugins.setExecutor(new CommandPlugins());
 
-            System.out.println("[Minecarts]: Enabling plugins ...");
+            logger.info("Enabling plugins ...");
             ServerImpl.pm.setAllEnabled(true);
 
             for (String s : CommandMap.map.keySet()) i.register(CommandMap.map.get(s));
 
-            System.out.println("[Minecarts]: Server fully loaded.");
+            logger.info(ChatColor.GREEN + "Server fully loaded.");
+            logger.error("Error Test");
             EventRegistery.invoke(ServerFullyLoadedEvent.class, new ServerFullyLoadedEvent());
         }
     }

@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.minecarts.api.command.CommandSender;
 import org.minecarts.api.entity.Player;
+import org.minecarts.api.logging.Logger;
 import org.minecarts.api.plugin.PluginManager;
 
 public interface Server {
@@ -103,5 +104,10 @@ public interface Server {
      * Returns the server's plugin manager.
      */
     public PluginManager getPluginManager();
+    
+    /**
+     * Returns the server's {@link Logger}
+     */
+    public Logger getLogger();
 
 }

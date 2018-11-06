@@ -12,6 +12,7 @@ import org.minecarts.api.WorldSettings;
 import org.minecarts.api.command.CommandSender;
 import org.minecarts.api.command.ConsoleCommandSender;
 import org.minecarts.api.entity.Player;
+import org.minecarts.api.logging.Logger;
 import org.minecarts.api.plugin.PluginManager;
 
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -25,8 +26,10 @@ public class ServerImpl implements Server {
     public static String build = "1.0-SNAPSHOT";
     public static PluginManager pm = new PluginManager();
     public static ServerImpl instance;
+    private static Logger logger;
 
     public static void onStartup() {
+        ServerImpl.logger = new Logger("[SERVER]: ");
         Minecarts.setServer(instance);
         File plfolder = new File("plugins");
         plfolder.mkdirs();
@@ -135,6 +138,11 @@ public class ServerImpl implements Server {
     public Class<?> findClassByMap(String name) throws ClassNotFoundException {
         // TODO: read mappings and return obfucated file name
         throw new ClassNotFoundException("Unimplmented Method!");
+    }
+
+    @Override
+    public Logger getLogger() {
+        return logger;
     }
 
 }

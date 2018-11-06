@@ -20,7 +20,7 @@ public class Minecarts {
         if (Minecarts.server != null) throw new UnsupportedOperationException("Minecarts.server != null");
 
         Minecarts.server = server;
-        System.out.println("This server is running " + server.getName() + " version " + 
+        server.getLogger().info(ChatColor.GREEN + "This server is running " + server.getName() + " version " + 
                 server.getMinecartsVersion() + " (Minecraft version " + server.getMinecraftVersion() +")");
     }
 

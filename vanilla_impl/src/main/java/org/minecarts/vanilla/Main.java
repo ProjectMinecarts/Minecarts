@@ -15,6 +15,8 @@ import java.util.jar.Attributes;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 
+import org.minecarts.api.logging.LoggerSettings;
+
 import net.minecraft.launchwrapper.Launch;
 
 public class Main {
@@ -23,11 +25,16 @@ public class Main {
     public static String[] args;
     public static Set<File> tweakers = new HashSet<File>();
 
-    public final static String minecraftVersion;
-    public final static String build;
+    public final static String minecraftVersion, build;
 
     public static void main(String[] args) {
         Main.args = args;
+        
+        List<String> arglist = Arrays.asList(args);
+        if (arglist.contains("--nojansi")) {
+            System.out.println("Disabling Jansi support...");
+            LoggerSettings.useJansi = false;
+        }
 
         System.out.println("Searching for additional tweakers...");
 

@@ -1,5 +1,7 @@
 package org.minecarts.api.command;
 
+import org.minecarts.api.Minecarts;
+
 public class ConsoleCommandSender implements CommandSender {
 
     @Override
@@ -9,7 +11,7 @@ public class ConsoleCommandSender implements CommandSender {
 
     @Override
     public void sendMessage(String message) {
-        System.out.println(message);
+        Minecarts.getServer().getLogger().info(message);
     }
 
     @Override
