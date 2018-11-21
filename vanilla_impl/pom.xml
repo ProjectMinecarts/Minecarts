@@ -5,7 +5,7 @@
     <parent>
         <artifactId>minecarts-parent</artifactId>
         <groupId>org.minecarts</groupId>
-        <version>1.13-SNAPSHOT</version>
+        <version>1.13.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,8 +17,8 @@
             <url>https://libraries.minecraft.net</url>
         </repository>
         <repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
+		    <id>mikroskeem-repo</id>
+		    <url>https://repo.wut.ee/repository/mikroskeem-repo</url>
 		</repository>
     </repositories>
 

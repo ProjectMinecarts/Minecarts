@@ -1,5 +1,6 @@
 package exampleplugin;
 
+import org.minecarts.api.ChatColor;
 import org.minecarts.api.command.Command;
 import org.minecarts.api.command.CommandExecutor;
 import org.minecarts.api.command.CommandSender;
@@ -15,7 +16,7 @@ public class ExampleCommand implements CommandExecutor {
         //      code for command
         // }
 
-        sender.sendMessage("This is an example command! Minecarts.org");
+        sender.sendMessage(ChatColor.GREEN + "This is an example command! Minecarts.org");
         sender.sendMessage("Label: " + label);
         sender.sendMessage("Arguments:");
         sender.sendMessage(args);

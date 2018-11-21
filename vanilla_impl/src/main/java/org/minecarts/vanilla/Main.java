@@ -21,7 +21,7 @@ import net.minecraft.launchwrapper.Launch;
 
 public class Main {
     public static String minecraftJar = 
-            "https://launcher.mojang.com/mc/game/1.13/server/d0caafb8438ebd206f99930cfaecfa6c9a13dca0/server.jar";
+            "https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca28b144ffa7/server.jar"; // 1.13.2
     public static String[] args;
     public static Set<File> tweakers = new HashSet<File>();
 
@@ -29,7 +29,7 @@ public class Main {
 
     public static void main(String[] args) {
         Main.args = args;
-        
+
         List<String> arglist = Arrays.asList(args);
         if (arglist.contains("--nojansi")) {
             System.out.println("Disabling Jansi support...");
@@ -105,7 +105,7 @@ public class Main {
         try {
             Properties properties = new Properties();
             properties.load(Main.class.getClassLoader().getResourceAsStream("build.properties"));
-            minecraftVersion = properties.getProperty("mcversion", "1.13");
+            minecraftVersion = properties.getProperty("mcversion", "1.13.2");
             build = properties.getProperty("build", "ERR_NO_BUILD_NUM");
         } catch (IOException ex) { throw new RuntimeException(ex); }
     }

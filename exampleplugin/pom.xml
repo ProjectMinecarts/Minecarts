@@ -5,7 +5,7 @@
     <parent>
         <artifactId>minecarts-parent</artifactId>
         <groupId>org.minecarts</groupId>
-        <version>1.13-SNAPSHOT</version>
+        <version>1.13.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

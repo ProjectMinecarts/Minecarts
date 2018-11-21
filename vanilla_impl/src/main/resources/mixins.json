@@ -6,9 +6,9 @@
   "refmap": "mixin.refmap.json",
   "mixins": [
     "MixinDedicatedServer",
-    "MixinMinecraftServer",
     "MixinEntity",
     "MixinEntityPlayer",
-    "MixinEntityPlayerMP"
+    "MixinEntityPlayerMP",
+    "MixinMinecraftServer"
   ]
 }

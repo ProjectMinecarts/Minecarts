@@ -35,7 +35,7 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
     }
 
     public LiteralCommandNode<CommandSource> register(String label) {
-        return register(ServerImpl.server.aK().a(), label);
+        return register(ServerImpl.server.aI().a(), label);
     }
 
     public LiteralCommandNode<CommandSource> register(CommandDispatcher<CommandSource> dispatcher, String label) {

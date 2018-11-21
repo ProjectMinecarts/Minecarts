@@ -3,7 +3,7 @@
   <parent>
     <artifactId>minecarts-parent</artifactId>
     <groupId>org.minecarts</groupId>
-    <version>1.13-SNAPSHOT</version>
+    <version>1.13.2-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>vanilla_impl</artifactId>
@@ -119,20 +119,20 @@
     <dependency>
       <groupId>org.minecarts</groupId>
       <artifactId>mcpdepend</artifactId>
-      <version>1.13-SNAPSHOT</version>
+      <version>1.13.2-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.minecarts</groupId>
       <artifactId>api</artifactId>
-      <version>1.13-SNAPSHOT</version>
+      <version>1.13.2-SNAPSHOT</version>
       <classifier>original</classifier>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.minecarts</groupId>
       <artifactId>minecraft-server</artifactId>
-      <version>1.13</version>
+      <version>1.13.2</version>
       <scope>compile</scope>
     </dependency>
     <dependency>

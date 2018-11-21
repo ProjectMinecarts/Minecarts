@@ -62,17 +62,16 @@ public class MixinDedicatedServer {
             for (String s : CommandMap.map.keySet()) i.register(CommandMap.map.get(s));
 
             logger.info(ChatColor.GREEN + "Server fully loaded.");
-            logger.error("Error Test");
             EventRegistery.invoke(ServerFullyLoadedEvent.class, new ServerFullyLoadedEvent());
         }
     }
 
-    public void aY() {
+    public void aW() {
         // Disable the GUI
     }
 
     public String getServerModName() {
         return "Minecarts";
     }
-
+    
 }
