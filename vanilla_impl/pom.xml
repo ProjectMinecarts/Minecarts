@@ -20,6 +20,14 @@
 		    <id>mikroskeem-repo</id>
 		    <url>https://repo.wut.ee/repository/mikroskeem-repo</url>
 		</repository>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+		<repository>
+			<id>isaiah-repo</id>
+			<url>https://raw.githubusercontent.com/IsaiahPatton/maven-repo/master/</url>
+		</repository>
     </repositories>
 
     <dependencies>
@@ -78,7 +86,7 @@
             <version>2.8.1</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>net.minecraft</groupId>
             <artifactId>launchwrapper</artifactId>
             <version>1.12</version>
@@ -93,11 +101,30 @@
                     <artifactId>asm-debug-all</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>-->
+        <dependency>
+        	<groupId>eu.mikroskeem</groupId>
+        	<artifactId>legacylauncher</artifactId>
+        	<version>1.18</version>
+        	<scope>compile</scope>
+        	<exclusions>
+                <exclusion>
+                    <groupId>org.lwjgl.lwjgl</groupId>
+                    <artifactId>lwjgl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.ow2.asm</groupId>
+                    <artifactId>asm-debug-all</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.spongepowered</groupId>
             <artifactId>mixin</artifactId>
             <version>0.6.15-SNAPSHOT</version>
+            <!--<groupId>org.minecarts</groupId>
+	        <artifactId>mixin</artifactId>
+	        <version>0.6.16-Minecarts</version>-->
             <scope>compile</scope>
             <exclusions>
                 <exclusion>

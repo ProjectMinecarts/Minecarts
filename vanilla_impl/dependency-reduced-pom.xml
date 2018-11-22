@@ -111,8 +111,16 @@
       <url>https://libraries.minecraft.net</url>
     </repository>
     <repository>
+      <id>mikroskeem-repo</id>
+      <url>https://repo.wut.ee/repository/mikroskeem-repo</url>
+    </repository>
+    <repository>
       <id>jitpack.io</id>
       <url>https://jitpack.io</url>
+    </repository>
+    <repository>
+      <id>isaiah-repo</id>
+      <url>https://raw.githubusercontent.com/IsaiahPatton/maven-repo/master/</url>
     </repository>
   </repositories>
   <dependencies>
