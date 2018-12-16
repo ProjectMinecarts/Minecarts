@@ -5,6 +5,10 @@ import org.minecarts.api.event.EventPriority;
 import org.minecarts.api.event.player.PlayerCommandPreprocessEvent;
 import org.minecarts.api.event.server.ServerFullyLoadedEvent;
 import org.minecarts.api.plugin.JavaPlugin;
+import org.minecarts.api.plugin.PluginInfo;
+
+//Line Below Not needed; but is helpful if you don't want to edit plugin.yml
+@PluginInfo(description = "Example!", name = "ExamplePlugin", version = "1.0")
 
 public class ExamplePlugin extends JavaPlugin {
 
@@ -18,7 +22,7 @@ public class ExamplePlugin extends JavaPlugin {
         getLogger().info("An example plugin for Minecarts!");
         getLogger().info("This feals alot like coding a Bukkit plugin");
 
-        System.out.println("Registering /examplecommand :");
+        getLogger().info("Registering /examplecommand :");
         getCommand("examplecommand").setExecutor(new ExampleCommand());
         getCommand("wild").setExecutor(new CommandWild());
 

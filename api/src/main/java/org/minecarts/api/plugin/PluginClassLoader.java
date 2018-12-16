@@ -38,6 +38,10 @@ final class PluginClassLoader extends URLClassLoader {
         }
 
         plugin = pluginClass.newInstance();
+
+        if (plugin.getClass().isAnnotationPresent(PluginInfo.class)) {
+            this.description.importFromAnnotation(plugin.getClass().getAnnotation(PluginInfo.class));
+        }
         plugin.init(des);
     }
 
