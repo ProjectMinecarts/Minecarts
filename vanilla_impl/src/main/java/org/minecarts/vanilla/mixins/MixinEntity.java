@@ -24,7 +24,7 @@ public abstract class MixinEntity implements org.minecarts.api.entity.Entity {
     public abstract net.minecraft.world.World bJ();
 
     @Shadow(remap=false)
-    public abstract void a(double d, double d2, double d3); // TODO: is right method?
+    public abstract void a(double d, double d2, double d3);
 
     @Override
     public String getName() {
@@ -60,9 +60,7 @@ public abstract class MixinEntity implements org.minecarts.api.entity.Entity {
 
     @Override
     public World getWorld() {
-        // nms -> bJ()
-        // TODO: add World & WorldServer mixin
-        return null;
+        return (World) bJ();
     }
 
     @Override

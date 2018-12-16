@@ -20,6 +20,7 @@ import org.minecarts.api.logging.LoggerSettings;
 import net.minecraft.launchwrapper.Launch;
 
 public class Main {
+
     public static String minecraftJar = 
             "https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca28b144ffa7/server.jar"; // 1.13.2
     public static String[] args;
@@ -109,4 +110,5 @@ public class Main {
             build = properties.getProperty("build", "ERR_NO_BUILD_NUM");
         } catch (IOException ex) { throw new RuntimeException(ex); }
     }
+
 }

@@ -9,6 +9,8 @@
     "MixinEntity",
     "MixinEntityPlayer",
     "MixinEntityPlayerMP",
-    "MixinMinecraftServer"
+    "MixinMinecraftServer",
+    "MixinWorld",
+    "MixinWorldServer"
   ]
 }

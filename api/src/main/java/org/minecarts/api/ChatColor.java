@@ -68,6 +68,9 @@ public enum ChatColor {
         return COLOR_CHAR + "" + color;
     }
 
+    /**
+     * Get if this ChatColor is a color or style.
+     */
     public boolean isColor() {
         switch (this) {
             case BOLD:

@@ -1,5 +1,7 @@
 package org.minecarts.api;
 
+import java.util.List;
+
 import org.minecarts.api.entity.Entity;
 
 public interface World {
@@ -12,6 +14,6 @@ public interface World {
     /**
      * Get the Entities in this world
      */
-    public Entity[] getEntities();
+    public List<Entity> getEntities();
 
 }
