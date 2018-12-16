@@ -3,6 +3,7 @@ package org.minecarts.api;
 import java.util.List;
 
 import org.minecarts.api.entity.Entity;
+import org.minecarts.api.entity.Player;
 
 public interface World {
 
@@ -15,5 +16,15 @@ public interface World {
      * Get the Entities in this world
      */
     public List<Entity> getEntities();
+
+    /**
+     * Get the World's {@link Difficulty} setting
+     */
+    public Difficulty getDifficulty();
+
+    /**
+     * Get a {@link Player} in this World
+     */
+    public Player getPlayer(String name);
 
 }
