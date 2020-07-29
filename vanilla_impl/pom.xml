@@ -5,7 +5,7 @@
     <parent>
         <artifactId>minecarts-parent</artifactId>
         <groupId>org.minecarts</groupId>
-        <version>1.13.2-SNAPSHOT</version>
+        <version>1.16.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -26,7 +26,7 @@
 		</repository>
 		<repository>
 			<id>isaiah-repo</id>
-			<url>https://raw.githubusercontent.com/IsaiahPatton/maven-repo/master/</url>
+			<url>https://isaiah.fungus-soft.com/maven-repo/</url>
 		</repository>
     </repositories>
 
@@ -171,7 +171,7 @@
                 <configuration>
                     <compilerArgs>
                         <compilerArg>-AdefaultObfuscationEnv=notch</compilerArg>
-                        <compilerArg>-AreobfNotchSrgFile=${project.parent.basedir}/joined-reversed.tsrg</compilerArg>
+                        <compilerArg>-AreobfNotchSrgFile=${project.parent.basedir}/yarn2intermediary.tsrg</compilerArg>
                         <compilerArg>-AoutRefMapFile=mixin.refmap.json</compilerArg>
                     </compilerArgs>
                     <showDeprecation>true</showDeprecation>
@@ -223,7 +223,7 @@
             <plugin>
                 <groupId>net.md-5</groupId>
                 <artifactId>specialsource-maven-plugin</artifactId>
-                <version>1.2.1-CodeCrafter47-6-SNAPSHOT</version>
+                <version>1.3-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <id>reobfuscate</id>
@@ -232,7 +232,7 @@
                             <goal>remap</goal>
                         </goals>
                         <configuration>
-                            <srgIn>${project.parent.basedir}/joined-reversed.tsrg
+                            <srgIn>${project.parent.basedir}/yarn2intermediary.tsrg
                             </srgIn>
                             <skipDebug>false</skipDebug>
                             <copyResources>true</copyResources>

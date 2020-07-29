@@ -1,6 +1,6 @@
 # Minecarts
-The main repository for the Minecarts server software.
+The main repository for the Minecarts server API
 
 ## Mappings
 
-joined.tsrg is a part of https://github.com/MinecraftForge/MCPConfig
+Mappings are a part of FabricMC

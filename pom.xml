@@ -7,7 +7,7 @@
     <groupId>org.minecarts</groupId>
     <artifactId>minecarts-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.13.2-SNAPSHOT</version>
+    <version>1.16.1-SNAPSHOT</version>
     <modules>
         <module>api</module>
         <module>exampleplugin</module>
@@ -20,10 +20,14 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <build.number>unknown</build.number>
-        <minecraft.version>1.13.2</minecraft.version>
+        <minecraft.version>1.16.1</minecraft.version>
     </properties>
 
     <repositories>
+        <repository>
+            <id>md5-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/public/</url>
+        </repository>
         <repository>
             <id>sponge-repo</id>
             <url>http://repo.spongepowered.org/maven</url>

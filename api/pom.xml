@@ -5,7 +5,7 @@
     <parent>
         <artifactId>minecarts-parent</artifactId>
         <groupId>org.minecarts</groupId>
-        <version>1.13.2-SNAPSHOT</version>
+        <version>1.16.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,13 +15,13 @@
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-chat</artifactId>
-            <version>1.11-SNAPSHOT</version>
+            <version>1.16-R0.3</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-config</artifactId>
-            <version>1.11-SNAPSHOT</version>
+            <version>1.16-R0.3</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
