@@ -4,9 +4,9 @@ import org.minecarts.api.entity.EntityType;
 import org.minecarts.api.entity.Player;
 import org.spongepowered.asm.mixin.Mixin;
 
-import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.network.ServerPlayerEntity;
 
-@Mixin(EntityPlayerMP.class)
+@Mixin(ServerPlayerEntity.class)
 public abstract class MixinEntityPlayerMP extends MixinEntityPlayer implements Player {
 
     @Override

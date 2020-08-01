@@ -8,32 +8,25 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.util.math.Vec3d;
 
 @Mixin(Entity.class)
 public abstract class MixinEntity implements org.minecarts.api.entity.Entity {
 
-    @Shadow(remap=false)
-    public abstract void a(ITextComponent text);
-    
-    @Shadow(remap=false)
-    public abstract UUID bt();
-    
-    @Shadow(remap=false)
-    public abstract net.minecraft.world.World bJ();
-
-    @Shadow(remap=false)
-    public abstract void a(double d, double d2, double d3);
+    @Shadow
+    public void sendSystemMessage(Text text, UUID uuid) {
+    }
 
     @Override
     public String getName() {
-        return null; // TODO
+        return ((Entity)(Object)this).getName().asString();
     }
 
     @Override
     public void sendMessage(String message) {
-        a(new TextComponentString(message));
+        sendSystemMessage(new LiteralText(message), UUID.randomUUID());
     }
 
     @Override
@@ -44,28 +37,28 @@ public abstract class MixinEntity implements org.minecarts.api.entity.Entity {
 
     @Override
     public Location getLocation() {
-        // TODO Auto-generated method stub
-        return null;
+        Vec3d pos = ((Entity)(Object)this).getPos();
+        return new Location(pos.x, pos.y, pos.z);
     }
 
     @Override
     public void teleport(Location l) {
-        a(l.x, l.y, l.z);
+        ((Entity)(Object)this).teleport(l.x, l.y, l.z);
     }
 
     @Override
     public void teleport(int x, int y, int z) {
-        a(x, y, z);
+        ((Entity)(Object)this).teleport(x, y, z);
     }
 
     @Override
     public World getWorld() {
-        return (World) bJ();
+        return (World) ((Entity)(Object)this).getEntityWorld();
     }
 
     @Override
     public UUID getUUID() {
-        return bt();
+        return ((Entity)(Object)this).getUuid();
     }
 
     @Override

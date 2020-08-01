@@ -3,8 +3,8 @@ package org.minecarts.vanilla.mixins;
 import org.minecarts.api.entity.Zombie;
 import org.spongepowered.asm.mixin.Mixin;
 
-import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.mob.ZombieEntity;
 
-@Mixin(EntityZombie.class)
+@Mixin(ZombieEntity.class)
 public abstract class MixinEntityZombie implements Zombie {
 }

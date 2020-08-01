@@ -22,11 +22,11 @@ import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 
-import net.minecraft.command.CommandSource;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
 
-public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvider<CommandSource>, Command<CommandSource>  {
+public class CommandWrapper implements Predicate<ServerCommandSource>, SuggestionProvider<ServerCommandSource>, Command<ServerCommandSource>  {
 
     public org.minecarts.api.command.Command minecarts;
 
@@ -34,20 +34,19 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
         this.minecarts = c;
     }
 
-    public LiteralCommandNode<CommandSource> register(String label) {
-        return register(ServerImpl.server.aI().a(), label);
+    public LiteralCommandNode<ServerCommandSource> register(String label) {
+        return register(ServerImpl.server.getCommandManager().getDispatcher(), label);
     }
 
-    public LiteralCommandNode<CommandSource> register(CommandDispatcher<CommandSource> dispatcher, String label) {
+    public LiteralCommandNode<ServerCommandSource> register(CommandDispatcher<ServerCommandSource> dispatcher, String label) {
         return dispatcher.register(
-                LiteralArgumentBuilder.<CommandSource>literal(label).requires(this).executes(this)
-                .then(RequiredArgumentBuilder.<CommandSource, String>argument("args", StringArgumentType.greedyString())
+                LiteralArgumentBuilder.<ServerCommandSource>literal(label).requires(this).executes(this)
+                .then(RequiredArgumentBuilder.<ServerCommandSource, String>argument("args", StringArgumentType.greedyString())
                         .suggests(this).executes(this)));
     }
 
     @Override
-    public CompletableFuture<Suggestions> getSuggestions(CommandContext<CommandSource> con, SuggestionsBuilder sug)
-            throws CommandSyntaxException {
+    public CompletableFuture<Suggestions> getSuggestions(CommandContext<ServerCommandSource> con, SuggestionsBuilder sug) throws CommandSyntaxException {
         List<String> results = minecarts.tabComplete();
 
         for (String s : results) sug.suggest(s);
@@ -56,22 +55,22 @@ public class CommandWrapper implements Predicate<CommandSource>, SuggestionProvi
     }
 
     @Override
-    public boolean test(CommandSource t) {
+    public boolean test(ServerCommandSource t) {
         return true; // TODO
     }
 
     @Override
-    public int run(CommandContext<CommandSource> arg0) throws CommandSyntaxException {
-        CommandSource cs = arg0.getSource();
+    public int run(CommandContext<ServerCommandSource> arg0) throws CommandSyntaxException {
+        ServerCommandSource cs = arg0.getSource();
         CommandSender csm;
         boolean player = false;
         boolean run = true;
 
-        if (null == cs.f()) {
+        if (null == cs.getPlayer()) {
             csm = Minecarts.getServer().getConsoleCommandSender();
         } else {
-            Entity e = cs.f();
-            if (e instanceof EntityPlayerMP) {
+            Entity e = cs.getEntity();
+            if (e instanceof ServerPlayerEntity) {
                 csm = (Player) e;
                 player = true;
             } else csm = (org.minecarts.api.entity.Entity) e;

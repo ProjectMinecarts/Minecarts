@@ -15,10 +15,11 @@ import org.minecarts.api.entity.Player;
 import org.minecarts.api.logging.Logger;
 import org.minecarts.api.plugin.PluginManager;
 
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.launchwrapper.Launch;
+import net.minecraft.network.MessageType;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.LiteralText;
 
 public class ServerImpl implements Server {
 
@@ -44,7 +45,7 @@ public class ServerImpl implements Server {
 
     @Override
     public String getMinecraftVersion() {
-        return "1.13.2";
+        return "1.16.1";
     }
 
     @Override
@@ -88,16 +89,15 @@ public class ServerImpl implements Server {
 
     @Override
     public void broadcast(String message) {
-        for (EntityPlayerMP p : server.ac().v()) 
-            p.a(new TextComponentString(message));
+        for (ServerPlayerEntity p : server.getPlayerManager().getPlayerList())
+            p.sendMessage(new LiteralText(message), net.minecraft.network.MessageType.field_11733, UUID.randomUUID());
     }
 
     @Override
     public void broadcast(String message, String permission) {
         // TODO: Permissons
-        for (EntityPlayerMP p : server.ac().v()) { 
-            p.a(new TextComponentString(message));
-        }
+        for (ServerPlayerEntity p : server.getPlayerManager().getPlayerList())
+            p.sendMessage(new LiteralText(message), net.minecraft.network.MessageType.field_11733, UUID.randomUUID());
     }
 
     @Override
@@ -112,19 +112,19 @@ public class ServerImpl implements Server {
 
     @Override
     public Player getPlayer(String name) {
-        return (Player) server.ac().a(name);
+        return (Player) server.getPlayerManager().getPlayer(name);
     }
 
     @Override
     public Player getPlayer(UUID uuid) {
-        return (Player) server.ac().a(uuid);
+        return (Player) server.getPlayerManager().getPlayer(uuid);
     }
 
     @Override
     public List<Player> getPlayersMatchng(String name) {
         List<Player> l = new ArrayList<>();
-        for (EntityPlayerMP e : server.ac().b(name))
-            l.add((Player) e);
+        for (String s : server.getPlayerManager().getPlayerNames())
+            if (s.contains(name)) l.add((Player) server.getPlayerManager().getPlayer(s));
 
         return l;
     }
@@ -136,7 +136,7 @@ public class ServerImpl implements Server {
 
     @Override
     public Class<?> findClassByMap(String name) throws ClassNotFoundException {
-        // TODO: read mappings and return obfucated file name
+        // TODO: read mappings and return obfuscated file name
         throw new ClassNotFoundException("Unimplmented Method!");
     }
 

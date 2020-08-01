@@ -15,7 +15,7 @@ public interface World {
     /**
      * Get the Entities in this world
      */
-    public List<Entity> getEntities();
+    public Iterable<Entity> getEntities();
 
     /**
      * Get the World's {@link Difficulty} setting

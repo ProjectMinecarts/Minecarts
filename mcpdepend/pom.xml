@@ -58,7 +58,7 @@
                             <goal>install-remapped-file</goal>
                         </goals>
                         <configuration>
-                            <srgIn>${project.parent.basedir}/obf2yarn.tsrg</srgIn>
+                            <srgIn>${project.parent.basedir}/mappings/obf2yarn.srg</srgIn>
                             <createChecksum>true</createChecksum>
                             <groupId>org.minecarts</groupId>
                             <artifactId>minecraft-server</artifactId>

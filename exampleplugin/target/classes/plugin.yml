@@ -1,3 +1,4 @@
 name: ExamplePlugin
 version: 1.0
 main: exampleplugin.ExamplePlugin
+description: An Example Plugin

@@ -171,7 +171,7 @@
                 <configuration>
                     <compilerArgs>
                         <compilerArg>-AdefaultObfuscationEnv=notch</compilerArg>
-                        <compilerArg>-AreobfNotchSrgFile=${project.parent.basedir}/yarn2intermediary.tsrg</compilerArg>
+                        <compilerArg>-AreobfNotchSrgFile=${project.parent.basedir}/mappings/yarn2intermediary.srg</compilerArg>
                         <compilerArg>-AoutRefMapFile=mixin.refmap.json</compilerArg>
                     </compilerArgs>
                     <showDeprecation>true</showDeprecation>
@@ -232,8 +232,7 @@
                             <goal>remap</goal>
                         </goals>
                         <configuration>
-                            <srgIn>${project.parent.basedir}/yarn2intermediary.tsrg
-                            </srgIn>
+                            <srgIn>${project.parent.basedir}/mappings/yarn2intermediary.srg</srgIn>
                             <skipDebug>false</skipDebug>
                             <copyResources>true</copyResources>
                             <mixinSupport>true</mixinSupport>
