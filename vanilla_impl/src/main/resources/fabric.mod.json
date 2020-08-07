@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "projectminecarts",
+  "version": "${version}",
+
+  "name": "ProjectMinecarts",
+  "description": "An new abstract mod api for Minecraft",
+  "authors": [
+  	"Bayside308",
+    "Isaiah"
+  ],
+
+  "license": "GPLv3",
+  "icon": "assets/thallium/icon.png",
+  "accessWidener" : "thallium.accesswidener",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.minecarts.fabric.MinecartsMod"
+    ]
+  },
+  "mixins": [
+    "minecarts.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.8.0",
+    "minecraft": "1.16.x"
+  }
+
+}

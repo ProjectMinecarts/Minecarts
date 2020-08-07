@@ -1,4 +1,4 @@
-package org.minecarts.vanilla.mixins;
+package org.minecarts.fabric.mixins;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.minecarts.api.Difficulty;
 import org.minecarts.api.World;
 import org.minecarts.api.entity.Entity;
 import org.minecarts.api.entity.Player;
-import org.minecarts.vanilla.ServerImpl;
+import org.minecarts.fabric.ServerImpl;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

@@ -1,14 +1,14 @@
 {
   "minVersion": "0.6.9-SNAPSHOT",
   "required": true,
-  "package": "org.minecarts.vanilla.mixins",
+  "package": "org.minecarts.fabric.mixins",
   "compatibilityLevel": "JAVA_8",
   "refmap": "mixin.refmap.json",
   "mixins": [
     "MixinDedicatedServer",
     "MixinEntity",
     "MixinEntityPlayer",
-    "MixinEntityPlayerMP",
+    "MixinServerPlayerEntity",
     "MixinMinecraftServer",
     "MixinWorld",
     "MixinWorldServer"

@@ -1,4 +1,4 @@
-package org.minecarts.vanilla;
+package org.minecarts.fabric;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

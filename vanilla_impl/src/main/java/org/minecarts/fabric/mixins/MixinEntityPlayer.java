@@ -1,4 +1,4 @@
-package org.minecarts.vanilla.mixins;
+package org.minecarts.fabric.mixins;
 
 import org.spongepowered.asm.mixin.Mixin;
 

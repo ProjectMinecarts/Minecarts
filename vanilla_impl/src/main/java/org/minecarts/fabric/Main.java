@@ -1,4 +1,4 @@
-package org.minecarts.vanilla;
+package org.minecarts.fabric;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +19,10 @@ import org.minecarts.api.logging.LoggerSettings;
 
 import net.minecraft.launchwrapper.Launch;
 
+/**
+ * @deprecated This is the old 1.13.2 version of ProjectMinecarts
+ */
+@Deprecated
 public class Main {
 
     public static String minecraftJar = 

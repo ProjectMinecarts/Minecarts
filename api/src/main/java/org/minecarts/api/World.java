@@ -1,7 +1,5 @@
 package org.minecarts.api;
 
-import java.util.List;
-
 import org.minecarts.api.entity.Entity;
 import org.minecarts.api.entity.Player;
 

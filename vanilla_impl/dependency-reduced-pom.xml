@@ -122,6 +122,10 @@
       <id>isaiah-repo</id>
       <url>https://isaiah.fungus-soft.com/maven-repo/</url>
     </repository>
+    <repository>
+      <id>Fabric</id>
+      <url>https://maven.fabricmc.net/</url>
+    </repository>
   </repositories>
   <dependencies>
     <dependency>

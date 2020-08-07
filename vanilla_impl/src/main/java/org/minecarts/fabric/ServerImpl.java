@@ -1,4 +1,4 @@
-package org.minecarts.vanilla;
+package org.minecarts.fabric;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -16,7 +16,6 @@ import org.minecarts.api.logging.Logger;
 import org.minecarts.api.plugin.PluginManager;
 
 import net.minecraft.launchwrapper.Launch;
-import net.minecraft.network.MessageType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
@@ -95,7 +94,7 @@ public class ServerImpl implements Server {
 
     @Override
     public void broadcast(String message, String permission) {
-        // TODO: Permissons
+        // TODO: Permissions
         for (ServerPlayerEntity p : server.getPlayerManager().getPlayerList())
             p.sendMessage(new LiteralText(message), net.minecraft.network.MessageType.field_11733, UUID.randomUUID());
     }
@@ -135,6 +134,7 @@ public class ServerImpl implements Server {
     }
 
     @Override
+    @Deprecated // from 1.13
     public Class<?> findClassByMap(String name) throws ClassNotFoundException {
         // TODO: read mappings and return obfuscated file name
         throw new ClassNotFoundException("Unimplmented Method!");

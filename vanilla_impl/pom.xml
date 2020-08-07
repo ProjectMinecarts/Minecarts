@@ -28,6 +28,10 @@
 			<id>isaiah-repo</id>
 			<url>https://isaiah.fungus-soft.com/maven-repo/</url>
 		</repository>
+		<repository>
+			<id>Fabric</id>
+			<url>https://maven.fabricmc.net/</url>
+		</repository>
     </repositories>
 
     <dependencies>
@@ -36,6 +40,11 @@
             <artifactId>mcpdepend</artifactId>
             <version>${project.parent.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+        	<groupId>net.fabricmc</groupId>
+        	<artifactId>fabric-loader</artifactId>
+        	<version>0.8.8+build.202</version>
         </dependency>
         <dependency>
             <groupId>org.minecarts</groupId>
@@ -60,48 +69,32 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>21.0</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.0</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.8.1</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.8.1</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
-        <!-- <dependency>
-            <groupId>net.minecraft</groupId>
-            <artifactId>launchwrapper</artifactId>
-            <version>1.12</version>
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.lwjgl.lwjgl</groupId>
-                    <artifactId>lwjgl</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.ow2.asm</groupId>
-                    <artifactId>asm-debug-all</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
         <dependency>
         	<groupId>eu.mikroskeem</groupId>
         	<artifactId>legacylauncher</artifactId>
@@ -121,21 +114,8 @@
         <dependency>
             <groupId>org.spongepowered</groupId>
             <artifactId>mixin</artifactId>
-            <version>0.6.15-SNAPSHOT</version>
-            <!--<groupId>org.minecarts</groupId>
-	        <artifactId>mixin</artifactId>
-	        <version>0.6.16-Minecarts</version>-->
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.googlecode.jarjar</groupId>
-                    <artifactId>jarjar</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.ow2.asm</groupId>
-                    <artifactId>asm-commons</artifactId>
-                </exclusion>
-            </exclusions>
+            <version>0.8-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
