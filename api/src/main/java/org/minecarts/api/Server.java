@@ -90,17 +90,6 @@ public interface Server {
     public List<Player> getPlayersMatchng(String name);
 
     /**
-     * Get obfucated nms class
-     */
-    public Class<?> findClass(String name) throws ClassNotFoundException;
-
-    /**
-     * Returns the obfucated nms class by the non-obfucated name.
-     * ex. findClassByMap("EnumChatFormat") -> a.class
-     */
-    public Class<?> findClassByMap(String name) throws ClassNotFoundException;
-
-    /**
      * Returns the server's plugin manager.
      */
     public PluginManager getPluginManager();

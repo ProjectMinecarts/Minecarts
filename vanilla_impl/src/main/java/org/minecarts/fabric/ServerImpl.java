@@ -15,7 +15,6 @@ import org.minecarts.api.entity.Player;
 import org.minecarts.api.logging.Logger;
 import org.minecarts.api.plugin.PluginManager;
 
-import net.minecraft.launchwrapper.Launch;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
@@ -105,11 +104,6 @@ public class ServerImpl implements Server {
     }
 
     @Override
-    public Class<?> findClass(String name) throws ClassNotFoundException {
-        return Launch.classLoader.findClass(name);
-    }
-
-    @Override
     public Player getPlayer(String name) {
         return (Player) server.getPlayerManager().getPlayer(name);
     }
@@ -131,13 +125,6 @@ public class ServerImpl implements Server {
     @Override
     public PluginManager getPluginManager() {
         return pm;
-    }
-
-    @Override
-    @Deprecated // from 1.13
-    public Class<?> findClassByMap(String name) throws ClassNotFoundException {
-        // TODO: read mappings and return obfuscated file name
-        throw new ClassNotFoundException("Unimplmented Method!");
     }
 
     @Override

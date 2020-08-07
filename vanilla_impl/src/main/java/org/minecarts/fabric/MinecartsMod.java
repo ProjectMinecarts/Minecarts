@@ -6,7 +6,6 @@ public class MinecartsMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        // TODO Auto-generated method stub
     }
 
 }
