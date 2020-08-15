@@ -11,6 +11,8 @@
     "MixinServerPlayerEntity",
     "MixinMinecraftServer",
     "MixinWorld",
-    "MixinWorldServer"
+    "MixinWorldServer",
+    "MixinServerPlayerInteractionManager",
+    "MixinBlockPos"
   ]
 }

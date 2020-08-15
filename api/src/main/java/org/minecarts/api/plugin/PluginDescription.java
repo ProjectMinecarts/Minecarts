@@ -16,6 +16,7 @@ public class PluginDescription {
      * @param f - Plugin description file
      * @throws IOException - Cant read from InputStream
      */
+    @Deprecated
     public PluginDescription(final InputStream in) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
         String line;

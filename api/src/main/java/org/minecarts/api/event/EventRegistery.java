@@ -61,9 +61,8 @@ public class EventRegistery {
         for (RegisteredListener l : ls) {
             Method m = l.method;
             try {
-
                 if (ev instanceof Cancelable)
-                    if ( ((Cancelable)ev).isCanceled() && !l.ignoreCancelled ) return;
+                    if (((Cancelable)ev).isCanceled() && !l.ignoreCancelled) return;
 
                 m.invoke(l.l, ev);
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
@@ -71,4 +70,5 @@ public class EventRegistery {
             }
         }
     }
+
 }

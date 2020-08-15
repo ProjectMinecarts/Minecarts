@@ -84,7 +84,7 @@ public class JavaPlugin implements IPlugin, CommandExecutor, Listener {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        return false; // To be overriden by plugins
+        return false; // To be overridden by plugins
     }
 
     @Override

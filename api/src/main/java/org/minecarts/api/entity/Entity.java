@@ -47,4 +47,14 @@ public interface Entity extends CommandSender {
      */
     public void kill();
 
+    /**
+     * Gets the name of the entity
+     */
+    public String getCustomName();
+
+    /**
+     * Sets the name of the entity
+     */
+    public void setCustomName(String name);
+
 }

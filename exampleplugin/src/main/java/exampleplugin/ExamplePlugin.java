@@ -7,9 +7,7 @@ import org.minecarts.api.event.server.ServerFullyLoadedEvent;
 import org.minecarts.api.plugin.JavaPlugin;
 import org.minecarts.api.plugin.PluginInfo;
 
-//Line Below Not needed; but is helpful if you don't want to edit plugin.yml
-@PluginInfo(description = "Example!", name = "ExamplePlugin", version = "1.0")
-
+@PluginInfo(name = "ExamplePlugin", description = "Example!", version = "1.0")
 public class ExamplePlugin extends JavaPlugin {
 
     @Override

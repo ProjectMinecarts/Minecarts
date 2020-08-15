@@ -64,8 +64,7 @@
                 <transformer>
                   <manifestEntries>
                     <Main-Class>org.minecarts.vanilla.Main</Main-Class>
-                    <TweakClass>org.spongepowered.asm.launch.MixinTweaker</TweakClass>
-                    <MixinConfigs>mixins.json</MixinConfigs>
+                    <MixinConfigs>minecarts.mixins.json</MixinConfigs>
                   </manifestEntries>
                 </transformer>
               </transformers>
@@ -132,6 +131,12 @@
       <groupId>org.minecarts</groupId>
       <artifactId>mcpdepend</artifactId>
       <version>1.16.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.fabricmc</groupId>
+      <artifactId>fabric-loader</artifactId>
+      <version>0.8.8+build.202</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

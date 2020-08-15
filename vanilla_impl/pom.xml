@@ -45,6 +45,7 @@
         	<groupId>net.fabricmc</groupId>
         	<artifactId>fabric-loader</artifactId>
         	<version>0.8.8+build.202</version>
+        	<scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.minecarts</groupId>

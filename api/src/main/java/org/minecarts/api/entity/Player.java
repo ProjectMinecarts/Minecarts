@@ -8,11 +8,9 @@ public interface Player extends LivingEntity {
     }
 
     /**
-     * Get the Player's API configuration file.
-     * Useful for storing econ balances & 
-     * other usefull infomation
+     * Get the Player's configuration file.
      */
-    // TODO: Change return file once implmented.
+    // TODO: Change return file once implemented.
     public Object getConfiguration();
 
 }
